@@ -1,11 +1,7 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import {
-  PayPalButtons,
-  PayPalScriptProvider,
-  usePayPalScriptReducer
-} from "@paypal/react-paypal-js";
+import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import Image from "next/image";
 import type { CartItem } from "@/components/CartProvider";
 import { getShipping } from "@/lib/shipping";
@@ -52,21 +48,30 @@ type PayPalCheckoutFormProps = {
   }) => void;
 };
 
+type ScriptState = {
+  isResolved: boolean;
+  isPending: boolean;
+  isRejected: boolean;
+};
+
 export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
-  const { paypalClientId, paypalClientToken } = props;
-  const hasClientId = Boolean(paypalClientId);
+  const { paypalClientId, paypalClientToken, paypalEnabled } = props;
+  const paypalReady =
+    paypalEnabled && typeof paypalClientId === "string" && paypalClientId.length > 0;
 
   useEffect(() => {
-    if (!hasClientId) {
-      console.error("PayPal not configured: NEXT_PUBLIC_PAYPAL_CLIENT_ID is missing.");
+    if (!paypalReady) {
+      console.error("Payments temporarily disabled: PayPal client ID is missing.");
     }
-  }, [hasClientId]);
+  }, [paypalReady]);
 
-  if (!hasClientId) {
+  if (!paypalReady) {
     return (
-      <div className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
-        PayPal not configured. Add `NEXT_PUBLIC_PAYPAL_CLIENT_ID` to `.env.local` and restart the dev server.
-      </div>
+      <PayPalCheckoutFormCore
+        {...props}
+        paypalReady={false}
+        scriptState={{ isResolved: false, isPending: false, isRejected: true }}
+      />
     );
   }
 
@@ -83,22 +88,29 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
 
   return (
     <PayPalScriptProvider options={options}>
-      <PayPalCheckoutFormInner {...props} />
+      <PayPalCheckoutFormWithSdk {...props} />
     </PayPalScriptProvider>
   );
 }
 
-function PayPalCheckoutFormInner({
+function PayPalCheckoutFormWithSdk(props: PayPalCheckoutFormProps) {
+  const [scriptState] = usePayPalScriptReducer();
+  return <PayPalCheckoutFormCore {...props} paypalReady scriptState={scriptState} />;
+}
+
+function PayPalCheckoutFormCore({
   items,
   subtotal,
   returnUrl,
-  paypalEnabled,
+  paypalEnabled: paypalEnabledProp,
   checkoutDetails,
-  onChangeCheckoutDetails
-}: PayPalCheckoutFormProps) {
+  onChangeCheckoutDetails,
+  paypalReady,
+  scriptState
+}: PayPalCheckoutFormProps & { paypalReady: boolean; scriptState: ScriptState }) {
   const { t } = useLanguage();
   const [selectedMethod, setSelectedMethod] = useState<MethodKey>("card");
-  const [{ isResolved, isPending, isRejected }] = usePayPalScriptReducer();
+  const { isResolved, isPending, isRejected } = scriptState;
   const sdkReady = isResolved;
   const sdkFailed = isRejected;
   const [cardEligible, setCardEligible] = useState(true);
@@ -115,6 +127,7 @@ function PayPalCheckoutFormInner({
     country: checkoutDetails.shipping.country,
     carrier: checkoutDetails.shipping.carrier
   });
+  const paypalEnabled = paypalReady && paypalEnabledProp;
   const paypalAvailable = paypalEnabled && sdkReady && !sdkFailed;
   const applePayEnabled = false;
   const googlePayEnabled = false;
@@ -643,6 +656,12 @@ function PayPalCheckoutFormInner({
           </div>
         )}
       </div>
+
+      {!paypalReady && (
+        <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700">
+          Payments temporarily disabled.
+        </div>
+      )}
 
       <div className="flex flex-wrap items-center gap-2.5">
         <button

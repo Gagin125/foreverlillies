@@ -25,9 +25,11 @@ export default function CheckoutContent() {
       locker: null as ParcelLocker | null
     }
   });
-  const [paypalConfig, setPaypalConfig] = useState<{ clientId: string; clientToken?: string | null } | null>(
-    null
-  );
+  const [paypalConfig, setPaypalConfig] = useState<{
+    clientId: string;
+    clientToken?: string | null;
+    enabled?: boolean;
+  } | null>(null);
   const [paypalConfigError, setPaypalConfigError] = useState(false);
   const returnUrl =
     typeof window !== "undefined"
@@ -68,14 +70,19 @@ export default function CheckoutContent() {
           throw new Error("PayPal not configured");
         }
         if (active) {
-          setPaypalConfig({ clientId: data.clientId, clientToken: data.clientToken });
+          setPaypalConfig({
+            clientId: data.clientId ?? "",
+            clientToken: data.clientToken ?? null,
+            enabled: Boolean(data.enabled)
+          });
         }
       } catch (error: any) {
         if (active) {
           setPaypalConfigError(true);
           setPaypalConfig({
             clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ?? "",
-            clientToken: null
+            clientToken: null,
+            enabled: false
           });
         }
         if (process.env.NODE_ENV !== "production") {
@@ -91,6 +98,7 @@ export default function CheckoutContent() {
 
   const paypalClientId =
     paypalConfig?.clientId || process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || "";
+  const paypalEnabled = Boolean(paypalClientId) && Boolean(paypalConfig?.enabled) && !paypalConfigError;
 
   if (items.length === 0) {
     return (
@@ -116,7 +124,7 @@ export default function CheckoutContent() {
                 returnUrl={returnUrl}
                 paypalClientId={paypalClientId}
                 paypalClientToken={paypalConfig?.clientToken ?? null}
-                paypalEnabled={Boolean(paypalClientId) && !paypalConfigError}
+                paypalEnabled={paypalEnabled}
                 checkoutDetails={checkoutDetails}
                 onChangeCheckoutDetails={(next) => setCheckoutDetails(next)}
               />

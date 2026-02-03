@@ -4,8 +4,9 @@ import { generatePayPalClientToken, getPayPalConfig } from "@/lib/paypal";
 export async function GET() {
   try {
     const { env, clientId } = getPayPalConfig();
-    if (!clientId) {
-      return NextResponse.json({ env, clientId: "" }, { status: 500 });
+    const enabled = Boolean(process.env.PAYPAL_CLIENT_ID && process.env.PAYPAL_CLIENT_SECRET && clientId);
+    if (!enabled) {
+      return NextResponse.json({ env, clientId: "", clientToken: null, enabled: false });
     }
 
     let clientToken: string | null = null;
@@ -15,7 +16,7 @@ export async function GET() {
       clientToken = null;
     }
 
-    return NextResponse.json({ env, clientId, clientToken });
+    return NextResponse.json({ env, clientId, clientToken, enabled: true });
   } catch (error: any) {
     return NextResponse.json({ error: error.message || "PayPal config error" }, { status: 500 });
   }
