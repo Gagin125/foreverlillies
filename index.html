@@ -1,0 +1,1204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forever Lilies | Handmade Pipe-Cleaner Lilies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --red: #8b0000;
+      --red-dark: #6f0000;
+      --white: #ffffff;
+      --text: #111111;
+      --gold: #b48a3c;
+      --beige: #f5eedb;
+      --beige-soft: #fbf7ee;
+      --shadow: 0 14px 30px rgba(17, 17, 17, 0.12);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background: linear-gradient(135deg, var(--beige-soft) 0%, var(--beige) 100%);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      cursor: pointer;
+      background: none;
+    }
+
+    .container {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2rem, 3.2vw, 3rem);
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      font-size: 1.05rem;
+      color: #1e1e1e;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--white);
+      box-shadow: 0 1px 0 rgba(17, 17, 17, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.3px;
+    }
+
+    .logo span {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 0.98rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--red);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a:focus::after {
+      transform: scaleX(1);
+    }
+
+    .hero {
+      min-height: 80vh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(80, 0, 0, 0.8), rgba(20, 0, 0, 0.4)),
+        url("images/hero-bouquet.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 40px 0;
+      max-width: 720px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      margin-bottom: 28px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 14px 36px;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      box-shadow: 0 14px 24px rgba(88, 0, 0, 0.3);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 28px rgba(88, 0, 0, 0.35);
+    }
+
+    .btn-link {
+      color: var(--white);
+      font-weight: 500;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .btn-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: var(--white);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .btn-link:hover::after,
+    .btn-link:focus::after {
+      transform: scaleX(1);
+    }
+
+    .collection-grid {
+      margin-top: 40px;
+      display: grid;
+      gap: 26px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .product-card {
+      background: var(--red);
+      color: var(--white);
+      padding: 28px 24px;
+      border-radius: var(--radius);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-media {
+      position: relative;
+      padding: 22px 0 16px;
+      display: grid;
+      place-items: center;
+    }
+
+    .product-media::before {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0;
+      transform: scale(0.7);
+      transition: transform 0.5s ease, opacity 0.5s ease;
+    }
+
+    .product-card:hover .product-media::before {
+      opacity: 0.9;
+      transform: scale(1);
+    }
+
+    .product-media img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 14px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-title {
+      font-family: "Playfair Display", serif;
+      font-size: 1.4rem;
+    }
+
+    .product-desc {
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .product-price {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    .btn-order {
+      background: var(--white);
+      color: var(--red);
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-order:hover,
+    .btn-order:focus {
+      transform: translateY(-2px);
+      background: #f9ecec;
+      color: var(--red-dark);
+    }
+
+    .custom-wrap {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .custom-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 16px 34px rgba(17, 17, 17, 0.08);
+    }
+
+    .custom-box ul {
+      list-style: none;
+      margin: 18px 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .custom-box li::before {
+      content: "•";
+      color: var(--gold);
+      font-size: 1.2rem;
+      margin-right: 8px;
+    }
+
+    .custom-note {
+      font-size: 0.95rem;
+      color: #2c2c2c;
+      margin-top: 12px;
+    }
+
+    .custom-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--red);
+      color: var(--white);
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+      margin-top: 18px;
+    }
+
+    .custom-cta:hover,
+    .custom-cta:focus {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .about-grid {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: start;
+      margin-top: 30px;
+    }
+
+    .about-card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(17, 17, 17, 0.08);
+    }
+
+    .about-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-list span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: inline-block;
+    }
+
+    .testimonial-grid {
+      margin-top: 36px;
+      display: grid;
+      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 26px rgba(17, 17, 17, 0.06);
+      font-size: 0.98rem;
+    }
+
+    .testimonial-card strong {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .faq-list {
+      margin-top: 28px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 24px rgba(17, 17, 17, 0.06);
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 18px 22px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+    }
+
+    .faq-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--beige);
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 22px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 240px;
+      padding-bottom: 18px;
+    }
+
+    .order-form {
+      margin-top: 32px;
+      background: var(--white);
+      padding: 32px;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 34px rgba(17, 17, 17, 0.08);
+      display: grid;
+      gap: 18px;
+    }
+
+    .form-row {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid #d6cfc1;
+      background: #fffaf0;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: var(--red);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background 0.2s ease;
+      justify-self: start;
+    }
+
+    .submit-btn:hover,
+    .submit-btn:focus {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
+
+    .form-note {
+      font-size: 0.92rem;
+      color: #2d2d2d;
+    }
+
+    .success-message {
+      display: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #f3ead3;
+      color: #3b2a00;
+      font-weight: 500;
+    }
+
+    footer {
+      background: #5b0000;
+      color: var(--white);
+      padding: 40px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      opacity: 0.9;
+      transition: opacity 0.2s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus {
+      opacity: 1;
+    }
+
+    .copyright {
+      width: 100%;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    /* ===== Real Bouquets (Forever Lilies) ===== */
+    .rb { padding: 72px 0; background: transparent; color: #111; }
+    .rb .container { width: min(1120px, 92vw); margin: 0 auto; }
+
+    .rb__heading { margin: 0 0 18px; }
+    .rb__kicker {
+      color: #8b0000;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+    .rb__title {
+      font-family: inherit;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height: 1.05;
+      margin: 0 0 8px;
+      font-weight: 800;
+    }
+    .rb__sub { margin: 0; color: #5a5a5a; font-size: 15px; }
+
+    .rb__shell {
+      margin-top: 22px;
+      padding: 22px;
+      border-radius: 22px;
+      background: #d9d2c6;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    }
+
+    .rb__viewport {
+      --pad: 12px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: var(--pad);
+      border-radius: 18px;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      touch-action: pan-y;
+      cursor: grab;
+      user-select: none;
+    }
+    .rb__viewport::-webkit-scrollbar { display: none; }
+    .rb__viewport.rb__dragging { cursor: grabbing; }
+
+    .rb__track {
+      --cols: 3;
+      --gap: 22px;
+      display: flex;
+      gap: var(--gap);
+      align-items: stretch;
+      flex-wrap: nowrap;
+    }
+
+    .rb__slide {
+      flex: 0 0 calc(
+        (100% - (2 * var(--pad)) - (var(--gap) * (var(--cols) - 1)))
+        / var(--cols)
+      );
+      scroll-snap-align: start;
+      min-width: 0;
+    }
+
+    .rb__frame {
+      background: #fff;
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      height: 100%;
+    }
+
+    .rb__frame img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 16px;
+      display: block;
+      pointer-events: none;
+    }
+
+    .rb__tray {
+      margin-top: 16px;
+      background: #fff;
+      border-radius: 999px;
+      height: 46px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    }
+
+    .rb__dots { display: flex; gap: 10px; align-items: center; justify-content: center; }
+    .rb__dot {
+      width: 7px; height: 7px;
+      border-radius: 999px;
+      background: #d6d6d6;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+    .rb__dot[aria-current="true"] { background: #8b0000; }
+
+    @media (max-width: 1023px) {
+      .rb__track { --cols: 2; }
+    }
+    @media (max-width: 639px) {
+      .rb__shell { padding: 18px; }
+      .rb__viewport { --pad: 10px; }
+      .rb__track { --cols: 1; --gap: 16px; }
+    }
+
+    @media (max-width: 720px) {
+      .section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        min-height: 70vh;
+      }
+
+      .nav {
+        justify-content: center;
+      }
+
+      .logo {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .product-media::before {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">Forever <span>Lilies</span></div>
+      <nav class="nav-links" aria-label="Primary">
+        <a class="nav-link" href="#collection">Collections</a>
+        <a class="nav-link" href="#custom">Custom orders</a>
+        <a class="nav-link" href="#about">Why Forever Lilies</a>
+        <a class="nav-link" href="#faq">FAQ</a>
+        <a class="nav-link" href="#testimonials">Testimonials</a>
+        <a class="nav-link" href="#order">Order</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <h1>Handmade Lilies That Last Forever</h1>
+        <p>Elegant, thoughtful, and crafted with care. A perfect gift for every occasion.</p>
+        <div class="hero-actions">
+          <a href="#order" class="btn-primary">Order Now</a>
+          <a href="#collection" class="btn-link">View the collection</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="collection">
+      <div class="container">
+        <h2 class="section-title">Our collection</h2>
+        <p class="section-intro">Choose from single stems, small bouquets, or full arrangements — each lily is shaped, wrapped, and finished by hand.</p>
+
+        <div class="collection-grid">
+          <article class="product-card">
+            <div class="product-media">
+              <img src="images/single-lily.jpg" alt="Single handmade lily" />
+            </div>
+            <div>
+              <h3 class="product-title">Single Lily</h3>
+              <p class="product-desc">One timeless stem for a thoughtful, elegant gesture.</p>
+              <p class="product-price">4.5 €</p>
+            </div>
+            <button class="btn-order" data-product="single">Order this</button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img src="images/three-lilies.jpg" alt="Trio bouquet of lilies" />
+            </div>
+            <div>
+              <h3 class="product-title">Trio Bouquet</h3>
+              <p class="product-desc">Three lilies tied together for a soft, romantic gift.</p>
+              <p class="product-price">13 €</p>
+            </div>
+            <button class="btn-order" data-product="trio">Order this</button>
+          </article>
+
+          <article class="product-card">
+            <div class="product-media">
+              <img src="images/five-lilies.jpg" alt="Five lily bouquet" />
+            </div>
+            <div>
+              <h3 class="product-title">Forever Bouquet</h3>
+              <p class="product-desc">Five stems for a full, statement arrangement.</p>
+              <p class="product-price">20 €</p>
+            </div>
+            <button class="btn-order" data-product="forever">Order this</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="custom">
+      <div class="container">
+        <h2 class="section-title">Custom Orders</h2>
+        <p class="section-intro">Have a specific color palette, bouquet size, or idea in mind? Forever Lilies are completely customizable. From single stems to statement arrangements, I can match your event, favorite colors, or home decor.</p>
+
+        <div class="custom-wrap">
+          <div class="custom-box">
+            <ul>
+              <li>Custom colors and combinations</li>
+              <li>Different bouquet sizes and shapes</li>
+              <li>Personalized wrapping and gift notes</li>
+            </ul>
+            <p class="custom-note">Custom order pricing depends on the design. I’ll confirm the final price with you before I start crafting.</p>
+            <button class="custom-cta" data-product="custom">Request a custom bouquet</button>
+          </div>
+          <div>
+            <img src="images/custom-bouquet.jpg" alt="Custom lily bouquet" style="border-radius: 20px; box-shadow: 0 16px 34px rgba(17,17,17,0.15);" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <h2 class="section-title">Why Forever Lilies?</h2>
+        <div class="about-grid">
+          <div class="about-card">
+            <p>I started Forever Lilies to capture the softness and elegance of real lilies in a way that never fades. Each flower is made by hand from pipe cleaners — shaped, twisted, and arranged one stem at a time.</p>
+            <p style="margin-top: 16px;">Every lily takes around 45 minutes to create, from the petals to the center details. That slow, careful process means each bouquet feels special, cozy, and truly one of a kind.</p>
+            <p style="margin-top: 16px;">Unlike fresh flowers, Forever Lilies last for years, don’t need water, and travel safely as a gift.</p>
+          </div>
+          <div class="about-card">
+            <ul class="about-list">
+              <li><span></span>Handmade in small batches</li>
+              <li><span></span>Lasts for years — no water needed</li>
+              <li><span></span>Soft, touchable texture</li>
+              <li><span></span>Perfect for gifts and home decor</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Kind Words</h2>
+        <div class="testimonial-grid">
+          <div class="testimonial-card">
+            <p>“So beautiful and detailed in person. I love that I can keep them on my shelf forever.”</p>
+            <strong>– Anna</strong>
+          </div>
+          <div class="testimonial-card">
+            <p>“Bought a bouquet as a gift and ended up ordering another one for my desk. The texture is amazing.”</p>
+            <strong>– Mark</strong>
+          </div>
+          <div class="testimonial-card">
+            <p>“You can tell how much care goes into each lily. It feels personal and handmade, not mass-produced.”</p>
+            <strong>– Elina</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rb" id="real-bouquets">
+      <div class="container">
+        <header class="rb__heading">
+          <div class="rb__kicker">Real bouquets</div>
+          <h2 class="rb__title">Freshly crafted lilies in the studio</h2>
+          <p class="rb__sub">A peek at recent orders and custom colorways.</p>
+        </header>
+
+        <div class="rb__shell">
+          <div class="rb__viewport" id="rbViewport" aria-label="Real bouquets carousel">
+            <div class="rb__track" id="rbTrack">
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-1.jpg" alt="Bouquet 1" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-2.jpg" alt="Bouquet 2" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-3.jpg" alt="Bouquet 3" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-4.jpg" alt="Bouquet 4" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-5.jpg" alt="Bouquet 5" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-6.jpg" alt="Bouquet 6" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-7.jpg" alt="Bouquet 7" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-8.jpg" alt="Bouquet 8" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-9.jpg" alt="Bouquet 9" draggable="false" /></div></article>
+              <article class="rb__slide"><div class="rb__frame"><img src="images/real/real-10.jpg" alt="Bouquet 10" draggable="false" /></div></article>
+            </div>
+          </div>
+
+          <div class="rb__tray">
+            <div class="rb__dots" id="rbDots" aria-label="Carousel pagination"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              How much do the lilies cost?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Single lily (1 stem): 4.5 €. Trio bouquet (3 stems): 13 €. Forever bouquet (5 stems): 20 €. Custom orders: price depends on the design and size. I’ll confirm the total before you pay.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              What color options do you have?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Most of my lilies are a rich cherry red, but I can also create other colors on request. In the order form, you can mention your preferred colors (for example: deep red, burgundy, pink, blue, purple, etc.).</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              How long does it take to make my order?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Each lily takes about 45 minutes to create. Small bouquets usually ship within a few days, and larger or custom arrangements may take a little longer. I’ll let you know the estimated time once I receive your order.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Do you ship or is it pick-up only?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>I currently offer both shipping and local pick-up. I ship to the Baltic countries.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              How are the lilies packaged?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Each bouquet is carefully wrapped, placed in a box with protective filling and bubble wrap, and finished with a “thank you” card.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" type="button" aria-expanded="false">
+              Can I order a custom bouquet?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Use the order form to describe your idea — colors, size, and occasion — and I’ll get back to you with options.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="order">
+      <div class="container">
+        <h2 class="section-title">Order Your Lilies</h2>
+        <p class="section-intro">Ready to send a forever gift? Fill out the form below and I’ll reply with confirmation, timing, and payment details.</p>
+
+        <form class="order-form" id="order-form">
+          <div class="form-row">
+            <div>
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="location">Country / City *</label>
+              <input type="text" id="location" name="location" required />
+            </div>
+            <div>
+              <label for="product">Product type</label>
+              <select id="product" name="product">
+                <option value="single">Single lily — 4.5 €</option>
+                <option value="trio">Trio bouquet (3 lilies) — 13 €</option>
+                <option value="forever">Forever bouquet (5 lilies) — 20 €</option>
+                <option value="custom">Custom order</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div>
+              <label for="quantity">Quantity</label>
+              <input type="number" id="quantity" name="quantity" value="1" min="1" />
+            </div>
+            <div>
+              <label for="packaging">Packaging preference</label>
+              <select id="packaging" name="packaging">
+                <option value="gift">Gift wrap</option>
+                <option value="box">Box</option>
+                <option value="surprise">Surprise me</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="colors">Preferred colors</label>
+            <textarea id="colors" name="colors" placeholder="Deep red, burgundy, pink..." ></textarea>
+          </div>
+          <div>
+            <label for="message">Message / details</label>
+            <textarea id="message" name="message" placeholder="Tell me about your occasion, any notes, or a card message."></textarea>
+          </div>
+          <button class="submit-btn" type="submit">Send order request</button>
+          <p class="form-note">I’ll reply to your email with the final price, payment link, and estimated delivery time.</p>
+          <div class="success-message" id="form-success">Thank you! Your request has been sent. I’ll get back to you soon.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <div>
+        <div class="logo">Forever <span>Lilies</span></div>
+        <p>Handmade pipe-cleaner lilies, crafted with care.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <span>·</span>
+        <a href="#">Pinterest</a>
+      </div>
+      <div class="copyright">© Forever Lilies, <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script>
+    const orderButtons = document.querySelectorAll("[data-product]");
+    const productSelect = document.getElementById("product");
+    const orderSection = document.getElementById("order");
+    const form = document.getElementById("order-form");
+    const successMessage = document.getElementById("form-success");
+    const yearSpan = document.getElementById("year");
+
+    yearSpan.textContent = new Date().getFullYear();
+
+    orderButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const product = button.getAttribute("data-product");
+        if (productSelect) {
+          productSelect.value = product;
+        }
+        orderSection.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      successMessage.style.display = "block";
+      successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    const faqItems = document.querySelectorAll(".faq-item");
+    faqItems.forEach((item) => {
+      const button = item.querySelector(".faq-question");
+      button.addEventListener("click", () => {
+        const isOpen = item.classList.contains("open");
+        faqItems.forEach((other) => {
+          other.classList.remove("open");
+          other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          item.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    (() => {
+      const viewport = document.getElementById("rbViewport");
+      const track = document.getElementById("rbTrack");
+      const dotsWrap = document.getElementById("rbDots");
+      if (!viewport || !track || !dotsWrap) return;
+
+      const slides = Array.from(track.querySelectorAll(".rb__slide"));
+      if (!slides.length) return;
+
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      let activeIndex = 0;
+      let isDown = false;
+      let startX = 0;
+      let startLeft = 0;
+      let pid = null;
+
+      const clamp = (n, a, b) => Math.max(a, Math.min(b, n));
+
+      function maxScroll() {
+        return Math.max(0, track.scrollWidth - viewport.clientWidth);
+      }
+
+      function setActiveDot(i) {
+        Array.from(dotsWrap.children).forEach((d, idx) => {
+          if (idx === i) d.setAttribute("aria-current", "true");
+          else d.removeAttribute("aria-current");
+        });
+      }
+
+      function buildDots() {
+        dotsWrap.innerHTML = "";
+        slides.forEach((_, i) => {
+          const b = document.createElement("button");
+          b.className = "rb__dot";
+          b.type = "button";
+          b.setAttribute("aria-label", `Go to image ${i + 1}`);
+          b.addEventListener("click", () => scrollToSlide(i, true));
+          dotsWrap.appendChild(b);
+        });
+        setActiveDot(activeIndex);
+      }
+
+      function scrollToSlide(i, smooth) {
+        const target = Math.min(slides[i].offsetLeft, maxScroll());
+        viewport.scrollTo({
+          left: target,
+          behavior: smooth && !prefersReduced ? "smooth" : "auto",
+        });
+        activeIndex = i;
+        setActiveDot(activeIndex);
+      }
+
+      function updateActiveFromScroll() {
+        const scrollLeft = viewport.scrollLeft;
+        let closest = 0;
+        let minDiff = Infinity;
+        slides.forEach((slide, i) => {
+          const diff = Math.abs(scrollLeft - slide.offsetLeft);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closest = i;
+          }
+        });
+        if (closest !== activeIndex) {
+          activeIndex = closest;
+          setActiveDot(activeIndex);
+        }
+      }
+
+      viewport.addEventListener("pointerdown", (e) => {
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        isDown = true;
+        pid = e.pointerId;
+        viewport.setPointerCapture(pid);
+        startX = e.clientX;
+        startLeft = viewport.scrollLeft;
+        viewport.classList.add("rb__dragging");
+      });
+
+      viewport.addEventListener("pointermove", (e) => {
+        if (!isDown || e.pointerId !== pid) return;
+        const dx = e.clientX - startX;
+        viewport.scrollLeft = startLeft - dx;
+      });
+
+      function endDrag() {
+        if (!isDown) return;
+        isDown = false;
+        viewport.classList.remove("rb__dragging");
+        try { viewport.releasePointerCapture(pid); } catch {}
+        pid = null;
+        updateActiveFromScroll();
+        scrollToSlide(activeIndex, true);
+      }
+
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
+      viewport.addEventListener("pointerleave", endDrag);
+
+      let raf = 0;
+      viewport.addEventListener("scroll", () => {
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(updateActiveFromScroll);
+      }, { passive: true });
+
+      function layout() {
+        buildDots();
+        activeIndex = clamp(activeIndex, 0, slides.length - 1);
+        scrollToSlide(activeIndex, false);
+      }
+
+      let t;
+      window.addEventListener("resize", () => {
+        clearTimeout(t);
+        t = setTimeout(layout, 150);
+      });
+
+      window.addEventListener("load", layout, { once: true });
+      layout();
+    })();
+  </script>
+</body>
+</html>

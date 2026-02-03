@@ -1,0 +1,2288 @@
+[
+  {
+    "id": "dpd-53348-ringaudu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Akademija",
+    "name": "Ringaudų Rimi DPD paštomatas",
+    "address": "Varžupio g. 1",
+    "postalCode": "53348"
+  },
+  {
+    "id": "dpd-85370-akmenes-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Akmenė",
+    "name": "Akmenės Norfa DPD paštomatas",
+    "address": "S. Daukanto g. 7A",
+    "postalCode": "85370"
+  },
+  {
+    "id": "dpd-62116-naujoji-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Alytus",
+    "name": "Naujoji IKI DPD paštomatas",
+    "address": "Naujoji g. 2C",
+    "postalCode": "62116"
+  },
+  {
+    "id": "dpd-62135-pulko-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Alytus",
+    "name": "Pulko Rimi DPD paštomatas",
+    "address": "Pulko g. 51A",
+    "postalCode": "62135"
+  },
+  {
+    "id": "dpd-62123-santaikos-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Alytus",
+    "name": "Santaikos Maxima DPD paštomatas",
+    "address": "Santaikos g. 34G",
+    "postalCode": "62123"
+  },
+  {
+    "id": "dpd-62411-pc-arena-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Alytus",
+    "name": "PC Arena DPD paštomatas",
+    "address": "Ūdrijos g. 1",
+    "postalCode": "62411"
+  },
+  {
+    "id": "dpd-29132-anyksciu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Anykščiai",
+    "name": "Anykščių Maxima DPD paštomatas",
+    "address": "A. Baranausko a. 4",
+    "postalCode": "29132"
+  },
+  {
+    "id": "dpd-29120-anyksciu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Anykščiai",
+    "name": "Anykščių Norfa DPD paštomatas",
+    "address": "Žiburio g. 12",
+    "postalCode": "29120"
+  },
+  {
+    "id": "dpd-60251-ariogalos-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Ariogala",
+    "name": "Ariogalos Maxima DPD paštomatas",
+    "address": "Taurupio g. 15A",
+    "postalCode": "60251"
+  },
+  {
+    "id": "dpd-21255-aukstadvario-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Aukštadvaris",
+    "name": "Aukštadvario Maxima paštomatas",
+    "address": "Vilniaus g. 15",
+    "postalCode": "21255"
+  },
+  {
+    "id": "dpd-14184-avizieniu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Avižieniai",
+    "name": "Avižienių Maxima DPD paštomatas",
+    "address": "Saulės g. 1",
+    "postalCode": "14184"
+  },
+  {
+    "id": "dpd-82321-baisogalos-gausa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Baisogala",
+    "name": "Baisogalos Gausa DPD paštomatas",
+    "address": "Maironio g. 44",
+    "postalCode": "82321"
+  },
+  {
+    "id": "dpd-17234-baltosios-vokes-aibe-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Baltoji Vokė",
+    "name": "Baltosios Vokės Aibė paštomatas",
+    "address": "Vilniaus g. 14",
+    "postalCode": "17234"
+  },
+  {
+    "id": "dpd-59209-birstonas-norfa-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Birštonas",
+    "name": "Birštonas Norfa paštomatas",
+    "address": "Sruogos g. 25",
+    "postalCode": "59209"
+  },
+  {
+    "id": "dpd-41173-sirvenos-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Biržai",
+    "name": "Širvėnos IKI DPD paštomatas",
+    "address": "Vytauto g. 27",
+    "postalCode": "41173"
+  },
+  {
+    "id": "dpd-66162-ciurlionio-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Druskininkai",
+    "name": "Čiurlionio MAXIMA DPD paštomatas",
+    "address": "M. K. Čiurlionio g. 99",
+    "postalCode": "66162"
+  },
+  {
+    "id": "dpd-66245-veisieju-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Druskininkai",
+    "name": "Veisiejų g. Maxima paštomatas",
+    "address": "Veisiejų g. 31",
+    "postalCode": "66245"
+  },
+  {
+    "id": "dpd-17169-eisiskiu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Eišiškės",
+    "name": "Eišiškių Norfa DPD paštomatas",
+    "address": "Vilniaus g. 19",
+    "postalCode": "17169"
+  },
+  {
+    "id": "dpd-26109-elektrenu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Elektrėnai",
+    "name": "Elektrėnų MAXIMA DPD paštomatas",
+    "address": "Rungos g. 4",
+    "postalCode": "26109"
+  },
+  {
+    "id": "dpd-26128-sabaliskiu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Elektrėnai",
+    "name": "Sabališkių Norfa DPD paštomatas",
+    "address": "Sabališkių g. 1J",
+    "postalCode": "26128"
+  },
+  {
+    "id": "dpd-53393-ezerelio-express-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Ežerėlis",
+    "name": "Ežerėlio Express paštomatas",
+    "address": "Kauno g. 18A",
+    "postalCode": "53393"
+  },
+  {
+    "id": "dpd-13104-galgiu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Galgiai",
+    "name": "Galgių Maxima DPD paštomatas",
+    "address": "Centrinė g. 36",
+    "postalCode": "13104"
+  },
+  {
+    "id": "dpd-96143-klaipedos-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Gargždai",
+    "name": "Klaipėdos g. MAXIMA paštomatas",
+    "address": "Klaipėdos g. 37",
+    "postalCode": "96143"
+  },
+  {
+    "id": "dpd-96124-gargzdu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Gargždai",
+    "name": "Gargždų IKI DPD paštomatas",
+    "address": "Klaipėdos g. 60",
+    "postalCode": "96124"
+  },
+  {
+    "id": "dpd-81494-ginkunu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Ginkūnai",
+    "name": "Ginkūnų Maxima DPD paštomatas",
+    "address": "Rasos g. 1",
+    "postalCode": "81494"
+  },
+  {
+    "id": "dpd-30125-taikos-g-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Ignalina",
+    "name": "Taikos g. Maxima DPD paštomatas",
+    "address": "Taikos g. 11",
+    "postalCode": "30125"
+  },
+  {
+    "id": "dpd-17249-jasiunu-koops-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jašiūnai",
+    "name": "Jašiūnų Koops DPD paštomatas",
+    "address": "Balinskio g. 2",
+    "postalCode": "17249"
+  },
+  {
+    "id": "dpd-55255-chemiku-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jonava",
+    "name": "Chemikų Norfa DPD paštomatas",
+    "address": "Chemikų g. 2",
+    "postalCode": "55255"
+  },
+  {
+    "id": "dpd-55195-plento-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jonava",
+    "name": "Plento Maxima DPD paštomatas",
+    "address": "Plento g. 3",
+    "postalCode": "55195"
+  },
+  {
+    "id": "dpd-55158-vasario-16-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jonava",
+    "name": "Vasario 16 Rimi DPD paštomatas",
+    "address": "Vasario 16-osios g. 4",
+    "postalCode": "55158"
+  },
+  {
+    "id": "dpd-55118-jonavos-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jonava",
+    "name": "Jonavos NORFA DPD paštomatas",
+    "address": "Žeimių g. 26A",
+    "postalCode": "55118"
+  },
+  {
+    "id": "dpd-84132-upytes-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Joniškis",
+    "name": "Upytės MAXIMA DPD paštomatas",
+    "address": "Upytės g. 19",
+    "postalCode": "84132"
+  },
+  {
+    "id": "dpd-84166-vilniaus-g-norfa-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Joniškis",
+    "name": "Vilniaus g. Norfa paštomatas",
+    "address": "Vilniaus g. 47B",
+    "postalCode": "84166"
+  },
+  {
+    "id": "dpd-53253-jonuciu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jonučiai",
+    "name": "Jonučių Norfa DPD paštomatas",
+    "address": "Atgimimo g. 1",
+    "postalCode": "53253"
+  },
+  {
+    "id": "dpd-74133-algirdo-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jurbarkas",
+    "name": "Algirdo Maxima DPD paštomatas",
+    "address": "Algirdo g. 1A",
+    "postalCode": "74133"
+  },
+  {
+    "id": "dpd-74127-jurbarko-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Jurbarkas",
+    "name": "Jurbarko IKI DPD paštomatas",
+    "address": "Dariaus ir Girėno g. 25",
+    "postalCode": "74127"
+  },
+  {
+    "id": "dpd-56156-gedimino-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaišiadorys",
+    "name": "Gedimino MAXIMA DPD paštomatas",
+    "address": "Gedimino g. 110",
+    "postalCode": "56156"
+  },
+  {
+    "id": "dpd-56167-kaisiadoriu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaišiadorys",
+    "name": "Kaišiadorių Norfa DPD paštomatas",
+    "address": "Gedimino g. 140",
+    "postalCode": "56167"
+  },
+  {
+    "id": "dpd-54449-karmelavos-express-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Karmėlava",
+    "name": "Karmėlavos Express paštomatas",
+    "address": "Vilniaus g. 54",
+    "postalCode": "54449"
+  },
+  {
+    "id": "dpd-45251-juozapaviciaus-rimi-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Juozapavičiaus Rimi paštomatas",
+    "address": "A. Juozapavičiaus pr. 11",
+    "postalCode": "45251"
+  },
+  {
+    "id": "dpd-45267-juozapaviciaus-norfa-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Juozapavičiaus Norfa paštomatas",
+    "address": "A. Juozapavičiaus pr. 84",
+    "postalCode": "45267"
+  },
+  {
+    "id": "dpd-47251-sapokos-silas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Šapokos Šilas DPD paštomatas",
+    "address": "A. Šapokos g. 38",
+    "postalCode": "47251"
+  },
+  {
+    "id": "dpd-48221-baltijos-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Baltijos Rimi DPD paštomatas",
+    "address": "Baltijos g. 58",
+    "postalCode": "48221"
+  },
+  {
+    "id": "dpd-45462-vaisvydava-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Vaišvydava IKI DPD paštomatas",
+    "address": "Didžioji g. 98",
+    "postalCode": "45462"
+  },
+  {
+    "id": "dpd-46329-europos-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Europos RIMI DPD paštomatas",
+    "address": "Europos pr. 43",
+    "postalCode": "46329"
+  },
+  {
+    "id": "dpd-47446-pc-mega-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "PC Mega DPD paštomatas",
+    "address": "Islandijos pl. 32",
+    "postalCode": "47446"
+  },
+  {
+    "id": "dpd-44269-lituanica-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Lituanica IKI DPD paštomatas",
+    "address": "Jonavos g. 3",
+    "postalCode": "44269"
+  },
+  {
+    "id": "dpd-44192-jonavos-g-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Jonavos g. Maxima DPD paštomatas",
+    "address": "Jonavos g. 60",
+    "postalCode": "44192"
+  },
+  {
+    "id": "dpd-48124-taubuciu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Taubūčių IKI DPD paštomatas",
+    "address": "Jotvingių g. 15",
+    "postalCode": "48124"
+  },
+  {
+    "id": "dpd-51423-barsausko-circle-k-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Baršausko Circle K paštomatas",
+    "address": "K. Baršausko g. 57",
+    "postalCode": "51423"
+  },
+  {
+    "id": "dpd-44149-petrausko-express-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Petrausko Express DPD paštomatas",
+    "address": "K. Petrausko g. 6",
+    "postalCode": "44149"
+  },
+  {
+    "id": "dpd-46499-sprangausko-silas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Sprangausko Šilas DPD paštomatas",
+    "address": "K. Sprangausko g. 1A",
+    "postalCode": "46499"
+  },
+  {
+    "id": "dpd-44333-pc-akropolis-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "PC Akropolis DPD paštomatas",
+    "address": "Karaliaus Mindaugo pr. 49",
+    "postalCode": "44333"
+  },
+  {
+    "id": "dpd-51349-girstupio-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Girstupio IKI DPD paštomatas",
+    "address": "Kovo 11-osios g. 22",
+    "postalCode": "51349"
+  },
+  {
+    "id": "dpd-50381-kreves-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Krėvės Maxima DPD paštomatas",
+    "address": "Krėvės pr. 108",
+    "postalCode": "50381"
+  },
+  {
+    "id": "dpd-52263-mariu-express-market-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Marių Express Market paštomatas",
+    "address": "Marių g. 2",
+    "postalCode": "52263"
+  },
+  {
+    "id": "dpd-47118-naujakuriu-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Naujakurių Maxima paštomatas",
+    "address": "Naujakurių g. 31",
+    "postalCode": "47118"
+  },
+  {
+    "id": "dpd-51185-urmas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Urmas DPD paštomatas",
+    "address": "Pramonės pr. 16",
+    "postalCode": "51185"
+  },
+  {
+    "id": "dpd-51267-pramones-ermitazas-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Pramonės Ermitažas paštomatas",
+    "address": "Pramonės pr. 6B",
+    "postalCode": "51267"
+  },
+  {
+    "id": "dpd-47158-raudondvario-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Raudondvario Maxima paštomatas",
+    "address": "Raudondvario pl. 284A",
+    "postalCode": "47158"
+  },
+  {
+    "id": "dpd-47180-raudondvario-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Raudondvario Rimi DPD paštomatas",
+    "address": "Raudondvario pl. 94b",
+    "postalCode": "47180"
+  },
+  {
+    "id": "dpd-46114-roku-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Rokų Maxima DPD paštomatas",
+    "address": "Rokų g. 17",
+    "postalCode": "46114"
+  },
+  {
+    "id": "dpd-47221-romainiu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Romainių Rimi DPD paštomatas",
+    "address": "Romainių g. 67c",
+    "postalCode": "47221"
+  },
+  {
+    "id": "dpd-44146-savanoriu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Savanorių IKI DPD paštomatas",
+    "address": "Savanorių pr. 111",
+    "postalCode": "44146"
+  },
+  {
+    "id": "dpd-50120-savanoriu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Savanorių RIMI DPD paštomatas",
+    "address": "Savanorių pr. 321",
+    "postalCode": "50120"
+  },
+  {
+    "id": "dpd-49450-pc-savas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "PC SAVAS DPD paštomatas",
+    "address": "Savanorių pr. 346",
+    "postalCode": "49450"
+  },
+  {
+    "id": "dpd-50240-studentu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Studentų Rimi DPD paštomatas",
+    "address": "Studentų g. 19",
+    "postalCode": "50240"
+  },
+  {
+    "id": "dpd-49335-topolis-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Topolis IKI DPD paštomatas",
+    "address": "Sukilėlių pr. 84",
+    "postalCode": "49335"
+  },
+  {
+    "id": "dpd-49218-siaures-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Šiaurės IKI DPD paštomatas",
+    "address": "Šiaurės pr. 91",
+    "postalCode": "49218"
+  },
+  {
+    "id": "dpd-53363-noreikiskiu-silas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Noreikiškių Šilas DPD paštomatas",
+    "address": "Šiltnamių g. 19",
+    "postalCode": "53363"
+  },
+  {
+    "id": "dpd-52375-masiulio-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Masiulio Maxima DPD paštomatas",
+    "address": "T. Masiulio g. 16E",
+    "postalCode": "52375"
+  },
+  {
+    "id": "dpd-50229-silas-taikos-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Šilas Taikos DPD paštomatas",
+    "address": "Taikos pr. 31A",
+    "postalCode": "50229"
+  },
+  {
+    "id": "dpd-50438-taikos-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Taikos IKI DPD paštomatas",
+    "address": "Taikos pr. 81",
+    "postalCode": "50438"
+  },
+  {
+    "id": "dpd-49440-dainavos-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Dainavos Rimi DPD paštomatas",
+    "address": "V. Krėvės pr. 43",
+    "postalCode": "49440"
+  },
+  {
+    "id": "dpd-54349-domeikava-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Domeikava Rimi DPD paštomatas",
+    "address": "Vandžiogalos pl. 112",
+    "postalCode": "54349"
+  },
+  {
+    "id": "dpd-47457-vandziogalos-silas-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Vandžiogalos Šilas paštomatas",
+    "address": "Vandžiogalos pl. 22",
+    "postalCode": "47457"
+  },
+  {
+    "id": "dpd-48414-varniu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Varnių Rimi DPD paštomatas",
+    "address": "Varnių g. 41",
+    "postalCode": "48414"
+  },
+  {
+    "id": "dpd-48244-zemaiciu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kaunas",
+    "name": "Žemaičių IKI DPD paštomatas",
+    "address": "Žemaičių pl. 23",
+    "postalCode": "48244"
+  },
+  {
+    "id": "dpd-69443-kazlu-ruda-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kazlų Rūda",
+    "name": "Kazlų Rūda Maxima paštomatas",
+    "address": "M. Valančiaus g. 7",
+    "postalCode": "69443"
+  },
+  {
+    "id": "dpd-86135-kelmes-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kelmė",
+    "name": "Kelmės Norfa DPD paštomatas",
+    "address": "S. Šilingo g. 5",
+    "postalCode": "86135"
+  },
+  {
+    "id": "dpd-92295-pc-studlendas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "PC Studlendas DPD paštomatas",
+    "address": "H. Manto g. 90",
+    "postalCode": "92295"
+  },
+  {
+    "id": "dpd-92327-kretingos-g-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Kretingos g. IKI DPD paštomatas",
+    "address": "Kretingos g. 83",
+    "postalCode": "92327"
+  },
+  {
+    "id": "dpd-92334-liepojos-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Liepojos Rimi DPD paštomatas",
+    "address": "Liepojos g. 27",
+    "postalCode": "92334"
+  },
+  {
+    "id": "dpd-92195-liepu-pc-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Liepų PC DPD paštomatas",
+    "address": "Liepų g. 81",
+    "postalCode": "92195"
+  },
+  {
+    "id": "dpd-96383-dercekliu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Derceklių Rimi DPD paštomatas",
+    "address": "Nidos g. 1",
+    "postalCode": "96383"
+  },
+  {
+    "id": "dpd-93194-nidos-g-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Nidos g. IKI DPD paštomatas",
+    "address": "Nidos g. 5",
+    "postalCode": "93194"
+  },
+  {
+    "id": "dpd-92347-pajurio-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Pajūrio Rimi DPD paštomatas",
+    "address": "Pajūrio g. 5A",
+    "postalCode": "92347"
+  },
+  {
+    "id": "dpd-92134-sauliu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Šaulių IKI DPD paštomatas",
+    "address": "Šaulių g. 11",
+    "postalCode": "92134"
+  },
+  {
+    "id": "dpd-92312-pc-luize-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "PC Luizė DPD paštomatas",
+    "address": "Šiaurės pr. 15",
+    "postalCode": "92312"
+  },
+  {
+    "id": "dpd-94105-pc-banginis-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "PC Banginis DPD paštomatas",
+    "address": "Šilutės pl. 35",
+    "postalCode": "94105"
+  },
+  {
+    "id": "dpd-94137-silutes-pl-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Šilutės pl. Maxima paštomatas",
+    "address": "Šilutės pl. 40A",
+    "postalCode": "94137"
+  },
+  {
+    "id": "dpd-95116-silutes-pl-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Šilutės pl. MAXIMA paštomatas",
+    "address": "Šilutės pl. 68",
+    "postalCode": "95116"
+  },
+  {
+    "id": "dpd-94231-pc-zarde-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "PC Žardė DPD paštomatas",
+    "address": "Taikos pr. 115",
+    "postalCode": "94231"
+  },
+  {
+    "id": "dpd-94284-pc-molas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "PC MOLAS DPD paštomatas",
+    "address": "Taikos pr. 139",
+    "postalCode": "94284"
+  },
+  {
+    "id": "dpd-91235-avitela-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Avitela DPD paštomatas",
+    "address": "Taikos pr. 15",
+    "postalCode": "91235"
+  },
+  {
+    "id": "dpd-91182-pc-akropolis-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "PC Akropolis DPD paštomatas",
+    "address": "Taikos pr. 61",
+    "postalCode": "91182"
+  },
+  {
+    "id": "dpd-93226-taikos-pc-arena-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Taikos PC Arena DPD paštomatas",
+    "address": "Taikos pr. 64",
+    "postalCode": "93226"
+  },
+  {
+    "id": "dpd-91110-tilzes-circle-k-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Tilžės Circle K DPD paštomatas",
+    "address": "Tilžės g. 56A",
+    "postalCode": "91110"
+  },
+  {
+    "id": "dpd-95203-vingio-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Klaipėda",
+    "name": "Vingio RIMI DPD paštomatas",
+    "address": "Vingio g. 31",
+    "postalCode": "95203"
+  },
+  {
+    "id": "dpd-97124-sventosios-g-rimi-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kretinga",
+    "name": "Šventosios g. Rimi paštomatas",
+    "address": "Šventosios g. 27B",
+    "postalCode": "97124"
+  },
+  {
+    "id": "dpd-97106-zemaites-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kretinga",
+    "name": "Žemaitės MAXIMA DPD paštomatas",
+    "address": "Žemaitės al. 29",
+    "postalCode": "97106"
+  },
+  {
+    "id": "dpd-40127-gedimino-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kupiškis",
+    "name": "Gedimino Maxima DPD paštomatas",
+    "address": "Gedimino g. 53N",
+    "postalCode": "40127"
+  },
+  {
+    "id": "dpd-81137-kursenu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kuršėnai",
+    "name": "Kuršėnų Maxima DPD paštomatas",
+    "address": "Vilniaus g. 43",
+    "postalCode": "81137"
+  },
+  {
+    "id": "dpd-70428-kybartu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kybartai",
+    "name": "Kybartų Norfa DPD paštomatas",
+    "address": "Vištyčio g. 40",
+    "postalCode": "70428"
+  },
+  {
+    "id": "dpd-57283-didzioji-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kėdainiai",
+    "name": "Didžioji MAXIMA DPD paštomatas",
+    "address": "J. Basanavičiaus g. 53",
+    "postalCode": "57283"
+  },
+  {
+    "id": "dpd-57354-stoties-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kėdainiai",
+    "name": "Stoties Maxima DPD paštomatas",
+    "address": "J. Basanavičiaus g. 93",
+    "postalCode": "57354"
+  },
+  {
+    "id": "dpd-57153-kedainiai-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Kėdainiai",
+    "name": "Kėdainiai Maxima paštomatas",
+    "address": "S. Dariaus ir S. Girėno g. 50A",
+    "postalCode": "57153"
+  },
+  {
+    "id": "dpd-67106-vilniaus-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Lazdijai",
+    "name": "Vilniaus g. Maxima paštomatas",
+    "address": "Vilniaus g. 13A",
+    "postalCode": "67106"
+  },
+  {
+    "id": "dpd-25143-lentvario-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Lentvaris",
+    "name": "Lentvario Maxima DPD paštomatas",
+    "address": "Vilniaus g. 24",
+    "postalCode": "25143"
+  },
+  {
+    "id": "dpd-83409-linkuvos-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Linkuva",
+    "name": "Linkuvos Norfa DPD paštomatas",
+    "address": "Žeimelio g. 47",
+    "postalCode": "83409"
+  },
+  {
+    "id": "dpd-87113-sedos-g-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Mažeikiai",
+    "name": "Sedos g. Rimi DPD paštomatas",
+    "address": "Sedos g. 27",
+    "postalCode": "87113"
+  },
+  {
+    "id": "dpd-89210-zemaitijos-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Mažeikiai",
+    "name": "Žemaitijos g. Maxima paštomatas",
+    "address": "Žemaitijos g. 38",
+    "postalCode": "89210"
+  },
+  {
+    "id": "dpd-89227-mazeikiu-pc-banga-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Mažeikiai",
+    "name": "Mažeikių PC Banga paštomatas",
+    "address": "Žemaitijos g. 72",
+    "postalCode": "89227"
+  },
+  {
+    "id": "dpd-13271-mickunu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Mickūnai",
+    "name": "Mickūnų Norfa DPD paštomatas",
+    "address": "Šilo g. 6",
+    "postalCode": "13271"
+  },
+  {
+    "id": "dpd-33140-moletu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Molėtai",
+    "name": "Molėtų Norfa DPD paštomatas",
+    "address": "J. Basanavičiaus g. 88",
+    "postalCode": "33140"
+  },
+  {
+    "id": "dpd-33103-moletu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Molėtai",
+    "name": "Molėtų Maxima DPD paštomatas",
+    "address": "Vilniaus g. 51",
+    "postalCode": "33103"
+  },
+  {
+    "id": "dpd-15171-nemencines-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Nemenčinė",
+    "name": "Nemenčinės Norfa DPD paštomatas",
+    "address": "Vilniaus g. 63",
+    "postalCode": "15171"
+  },
+  {
+    "id": "dpd-93124-nidos-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Neringa",
+    "name": "Nidos IKI DPD paštomatas",
+    "address": "Naglių g. 18A",
+    "postalCode": "93124"
+  },
+  {
+    "id": "dpd-93101-juodkrantes-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Neringa",
+    "name": "Juodkrantės paštomatas",
+    "address": "L. Rėzos g. 56, Juodkrantė",
+    "postalCode": "93101"
+  },
+  {
+    "id": "dpd-18170-vilniaus-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Pabradė",
+    "name": "Vilniaus g. Maxima paštomatas",
+    "address": "Vilniaus g. 5",
+    "postalCode": "18170"
+  },
+  {
+    "id": "dpd-14115-pagiriu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Pagiriai",
+    "name": "Pagirių Maxima DPD paštomatas",
+    "address": "Vilniaus g. 18",
+    "postalCode": "14115"
+  },
+  {
+    "id": "dpd-83166-kepyklos-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Pakruojis",
+    "name": "Kepyklos IKI DPD paštomatas",
+    "address": "Kepyklos g. 2A",
+    "postalCode": "83166"
+  },
+  {
+    "id": "dpd-00132-vytauto-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Palanga",
+    "name": "Vytauto Maxima DPD paštomatas",
+    "address": "Vytauto g. 92",
+    "postalCode": "00132"
+  },
+  {
+    "id": "dpd-00122-gintaro-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Palanga",
+    "name": "Gintaro RIMI DPD paštomatas",
+    "address": "Vytauto g. 100",
+    "postalCode": "00122"
+  },
+  {
+    "id": "dpd-35174-ukmerges-circle-k-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Ukmergės Circle K paštomatas",
+    "address": "A. Jakšto g. 2",
+    "postalCode": "35174"
+  },
+  {
+    "id": "dpd-35174-ukmerges-express-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Ukmergės Express paštomatas",
+    "address": "A. Mackevičiaus g. 2",
+    "postalCode": "35174"
+  },
+  {
+    "id": "dpd-36228-pramones-circle-k-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Pramonės Circle K paštomatas",
+    "address": "Beržų g. 46A",
+    "postalCode": "36228"
+  },
+  {
+    "id": "dpd-37300-nemuno-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Nemuno Norfa DPD paštomatas",
+    "address": "Nemuno g. 15",
+    "postalCode": "37300"
+  },
+  {
+    "id": "dpd-37162-pc-ryo-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "PC Ryo DPD paštomatas",
+    "address": "Savitiškio g. 61",
+    "postalCode": "37162"
+  },
+  {
+    "id": "dpd-36160-berzu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Beržų Maxima DPD paštomatas",
+    "address": "Staniūnų g. 62",
+    "postalCode": "36160"
+  },
+  {
+    "id": "dpd-37102-pc-babilonas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "PC Babilonas DPD paštomatas",
+    "address": "Klaipėdos g. 143A",
+    "postalCode": "37102"
+  },
+  {
+    "id": "dpd-36220-ramygalos-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Ramygalos IKI DPD paštomatas",
+    "address": "Ramygalos g. 151",
+    "postalCode": "36220"
+  },
+  {
+    "id": "dpd-37219-klaipedos-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Klaipėdos Norfa DPD paštomatas",
+    "address": "Klaipėdos g. 103",
+    "postalCode": "37219"
+  },
+  {
+    "id": "dpd-37207-klaipedos-g-rimi-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Klaipėdos g. RIMI paštomatas",
+    "address": "Klaipėdos g. 92",
+    "postalCode": "37207"
+  },
+  {
+    "id": "dpd-36207-aguonu-g-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Aguonų g. Maxima DPD paštomatas",
+    "address": "Aguonų g. 9",
+    "postalCode": "36207"
+  },
+  {
+    "id": "dpd-36203-aukstaiciu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Panevėžys",
+    "name": "Aukštaičių RIMI DPD paštomatas",
+    "address": "Aukštaičių g. 79",
+    "postalCode": "36203"
+  },
+  {
+    "id": "dpd-39149-pasvalio-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Pasvalys",
+    "name": "Pasvalio Norfa DPD paštomatas",
+    "address": "Vilniaus g. 48",
+    "postalCode": "39149"
+  },
+  {
+    "id": "dpd-90103-ryto-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Plungė",
+    "name": "Ryto Norfa DPD paštomatas",
+    "address": "Ryto g. 3",
+    "postalCode": "90103"
+  },
+  {
+    "id": "dpd-90121-dariaus-ir-gireno-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Plungė",
+    "name": "Dariaus ir Girėno Maxima DPD paštomatas",
+    "address": "Dariaus ir Girėno g. 39",
+    "postalCode": "90121"
+  },
+  {
+    "id": "dpd-59117-prienu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Prienai",
+    "name": "Prienų Maxima DPD paštomatas",
+    "address": "Vytauto g. 28A",
+    "postalCode": "59117"
+  },
+  {
+    "id": "dpd-82187-gedimino-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Radviliškis",
+    "name": "Gedimino IKI DPD paštomatas",
+    "address": "Gedimino g. 28",
+    "postalCode": "82187"
+  },
+  {
+    "id": "dpd-82136-vaizganto-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Radviliškis",
+    "name": "Vaižganto Norfa DPD paštomatas",
+    "address": "Vaižganto g. 45A",
+    "postalCode": "82136"
+  },
+  {
+    "id": "dpd-60128-k-jovaisos-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Raseiniai",
+    "name": "K. Jovaišos Maxima paštomatas",
+    "address": "K. Jovaišos g. 1",
+    "postalCode": "60128"
+  },
+  {
+    "id": "dpd-60155-vilniaus-norfa-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Raseiniai",
+    "name": "Vilniaus Norfa paštomatas",
+    "address": "Vilniaus g. 91",
+    "postalCode": "60155"
+  },
+  {
+    "id": "dpd-90205-rietavo-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Rietavas",
+    "name": "Rietavo Norfa DPD paštomatas",
+    "address": "Parko g. 4",
+    "postalCode": "90205"
+  },
+  {
+    "id": "dpd-42145-panevezio-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Rokiškis",
+    "name": "Panevėžio g. Maxima paštomatas",
+    "address": "Panevėžio g. 14",
+    "postalCode": "42145"
+  },
+  {
+    "id": "dpd-56338-rumsiskiu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Rumšiškės",
+    "name": "Rumšiškių Norfa DPD paštomatas",
+    "address": "Kauno g. 20",
+    "postalCode": "56338"
+  },
+  {
+    "id": "dpd-71119-sauliu-g-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šakiai",
+    "name": "Šaulių g. Maxima DPD paštomatas",
+    "address": "Šaulių g. 11",
+    "postalCode": "71119"
+  },
+  {
+    "id": "dpd-71121-kudirkos-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šakiai",
+    "name": "Kudirkos Norfa DPD paštomatas",
+    "address": "V. Kudirkos g. 91",
+    "postalCode": "71121"
+  },
+  {
+    "id": "dpd-17101-salcininku-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šalčininkai",
+    "name": "Šalčininkų Norfa DPD paštomatas",
+    "address": "Vilniaus g. 2B",
+    "postalCode": "17101"
+  },
+  {
+    "id": "dpd-82224-indritus-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šeduva",
+    "name": "Indritus DPD paštomatas",
+    "address": "Laisvės a. 21",
+    "postalCode": "82224"
+  },
+  {
+    "id": "dpd-76216-birutes-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Birutės IKI DPD paštomatas",
+    "address": "Birutės g. 49",
+    "postalCode": "76216"
+  },
+  {
+    "id": "dpd-78348-geguziu-pc-arena-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Gegužių PC Arena DPD paštomatas",
+    "address": "Gegužių g. 30",
+    "postalCode": "78348"
+  },
+  {
+    "id": "dpd-76326-gumbines-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Gumbinės Norfa DPD paštomatas",
+    "address": "Gumbinės g. 145A",
+    "postalCode": "76326"
+  },
+  {
+    "id": "dpd-76301-valanciaus-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Valančiaus Norfa DPD paštomatas",
+    "address": "M. Valančiaus g. 18",
+    "postalCode": "76301"
+  },
+  {
+    "id": "dpd-78148-bruklinas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Bruklinas DPD paštomatas",
+    "address": "Pramonės g. 6",
+    "postalCode": "78148"
+  },
+  {
+    "id": "dpd-77159-pc-saules-miestas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "PC Saulės miestas DPD paštomatas",
+    "address": "Tilžės g. 109",
+    "postalCode": "77159"
+  },
+  {
+    "id": "dpd-78242-aido-g-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Aido g. Norfa DPD paštomatas",
+    "address": "Tilžės g. 13A",
+    "postalCode": "78242"
+  },
+  {
+    "id": "dpd-76200-pc-tilze-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "PC Tilžė DPD paštomatas",
+    "address": "Tilžės g. 225",
+    "postalCode": "76200"
+  },
+  {
+    "id": "dpd-76275-vilniaus-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Vilniaus g. Maxima paštomatas",
+    "address": "Vilniaus g. 3",
+    "postalCode": "76275"
+  },
+  {
+    "id": "dpd-78279-architektu-g-norfa-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šiauliai",
+    "name": "Architektų g. Norfa paštomatas",
+    "address": "Vilties g. 1, Dainų k., Šiaulių r.",
+    "postalCode": "78279"
+  },
+  {
+    "id": "dpd-75124-basanaviciaus-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šilalė",
+    "name": "Basanavičiaus IKI DPD paštomatas",
+    "address": "J. Basanavičiaus g. 21",
+    "postalCode": "75124"
+  },
+  {
+    "id": "dpd-99175-lietuvininku-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šilutė",
+    "name": "Lietuvininkų Maxima paštomatas",
+    "address": "Lietuvininkų g. 58",
+    "postalCode": "99175"
+  },
+  {
+    "id": "dpd-99148-misko-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šilutė",
+    "name": "Miško MAXIMA DPD paštomatas",
+    "address": "Miško g. 7",
+    "postalCode": "99148"
+  },
+  {
+    "id": "dpd-99169-tilzes-lidl-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šilutė",
+    "name": "Tilžės Lidl DPD paštomatas",
+    "address": "Tilžės g. 22A",
+    "postalCode": "99169"
+  },
+  {
+    "id": "dpd-19105-sirvintu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Širvintos",
+    "name": "Širvintų Maxima DPD paštomatas",
+    "address": "I. Šeiniaus g. 19",
+    "postalCode": "19105"
+  },
+  {
+    "id": "dpd-00303-sventosios-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Šventoji",
+    "name": "Šventosios Maxima paštomatas",
+    "address": "Mokyklos g. 1",
+    "postalCode": "00303"
+  },
+  {
+    "id": "dpd-18123-vilniaus-g-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Švenčionys",
+    "name": "Vilniaus g. Maxima paštomatas",
+    "address": "Vilniaus g. 37",
+    "postalCode": "18123"
+  },
+  {
+    "id": "dpd-18209-zemutine-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Švenčionėliai",
+    "name": "Žemutinė Norfa DPD paštomatas",
+    "address": "Žemutinė g. 26",
+    "postalCode": "18209"
+  },
+  {
+    "id": "dpd-86488-tytuvenu-aibe-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Tytuvėnai",
+    "name": "Tytuvėnų Aibė DPD paštomatas",
+    "address": "J. Basanavičiaus g. 1",
+    "postalCode": "86488"
+  },
+  {
+    "id": "dpd-20159-vilniaus-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Ukmergė",
+    "name": "Vilniaus IKI DPD paštomatas",
+    "address": "Vilniaus g. 62",
+    "postalCode": "20159"
+  },
+  {
+    "id": "dpd-20184-pc-eifelis-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Ukmergė",
+    "name": "PC Eifelis DPD paštomatas",
+    "address": "Vytauto g. 113",
+    "postalCode": "20184"
+  },
+  {
+    "id": "dpd-20118-ziedo-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Ukmergė",
+    "name": "Žiedo Maxima DPD paštomatas",
+    "address": "Žiedo g. 1",
+    "postalCode": "20118"
+  },
+  {
+    "id": "dpd-28150-ausros-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Utena",
+    "name": "Aušros Maxima DPD paštomatas",
+    "address": "Aušros g. 78",
+    "postalCode": "28150"
+  },
+  {
+    "id": "dpd-28214-basanaviciaus-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Utena",
+    "name": "Basanavičiaus Maxima paštomatas",
+    "address": "J. Basanavičiaus g. 108B",
+    "postalCode": "28214"
+  },
+  {
+    "id": "dpd-28142-utenos-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Utena",
+    "name": "Utenos RIMI DPD paštomatas",
+    "address": "J. Basanavičiaus g. 52",
+    "postalCode": "28142"
+  },
+  {
+    "id": "dpd-14180-uzubaliu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Užubaliai",
+    "name": "Užubalių Rimi DPD paštomatas",
+    "address": "Senasis Ukmergės kl. 46A",
+    "postalCode": "14180"
+  },
+  {
+    "id": "dpd-65184-vytauto-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Varėna",
+    "name": "Vytauto IKI DPD paštomatas",
+    "address": "Vytauto g. 18",
+    "postalCode": "65184"
+  },
+  {
+    "id": "dpd-85329-ventos-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Venta",
+    "name": "Ventos Norfa DPD paštomatas",
+    "address": "Plento g. 2A",
+    "postalCode": "85329"
+  },
+  {
+    "id": "dpd-89492-vieksniu-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Viekšniai",
+    "name": "Viekšnių DPD paštomatas",
+    "address": "Tilto g. 12",
+    "postalCode": "89492"
+  },
+  {
+    "id": "dpd-21375-vievio-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vievis",
+    "name": "Vievio Norfa DPD paštomatas",
+    "address": "Šviesos skg. 2",
+    "postalCode": "21375"
+  },
+  {
+    "id": "dpd-66492-vieciunu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Viečiūnai",
+    "name": "Viečiūnų Maxima DPD paštomatas",
+    "address": "Jaunystės g. 17A",
+    "postalCode": "66492"
+  },
+  {
+    "id": "dpd-70163-s-neries-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilkaviškis",
+    "name": "S. Neries Maxima DPD paštomatas",
+    "address": "S. Neries g. 4",
+    "postalCode": "70163"
+  },
+  {
+    "id": "dpd-70124-vytauto-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilkaviškis",
+    "name": "Vytauto IKI DPD paštomatas",
+    "address": "Vytauto g. 101",
+    "postalCode": "70124"
+  },
+  {
+    "id": "dpd-54221-vilkijos-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilkija",
+    "name": "Vilkijos IKI DPD paštomatas",
+    "address": "Čekiškės g. 98",
+    "postalCode": "54221"
+  },
+  {
+    "id": "dpd-04326-kavoliuko-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Kavoliuko Norfa DPD paštomatas",
+    "address": "A. P. Kavoliuko g. 6",
+    "postalCode": "04326"
+  },
+  {
+    "id": "dpd-10203-pc-eglute-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC Eglutė DPD paštomatas",
+    "address": "Antakalnio g. 73",
+    "postalCode": "10203"
+  },
+  {
+    "id": "dpd-04112-lazdynu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Lazdynų Rimi DPD paštomatas",
+    "address": "Architektų g. 19",
+    "postalCode": "04112"
+  },
+  {
+    "id": "dpd-04221-architektu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Architektų IKI DPD paštomatas",
+    "address": "Architektų g. 43",
+    "postalCode": "04221"
+  },
+  {
+    "id": "dpd-06324-pc-mandarinas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC Mandarinas DPD paštomatas",
+    "address": "Ateities g. 91",
+    "postalCode": "06324"
+  },
+  {
+    "id": "dpd-11341-paupio-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Paupio DPD paštomatas",
+    "address": "Aukštaičių g. 7",
+    "postalCode": "11341"
+  },
+  {
+    "id": "dpd-08412-visoriu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Visorių IKI DPD paštomatas",
+    "address": "Bajorų kl. 4",
+    "postalCode": "08412"
+  },
+  {
+    "id": "dpd-08400-balsiu-cia-market-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Balsių Čia Market paštomatas",
+    "address": "Balsių g. 12",
+    "postalCode": "08400"
+  },
+  {
+    "id": "dpd-12110-pc-domuspro-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC DomusPro DPD paštomatas",
+    "address": "Bieliūnų g. 1",
+    "postalCode": "12110"
+  },
+  {
+    "id": "dpd-08316-baltupiu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Baltupių Maxima DPD paštomatas",
+    "address": "Didlaukio g. 1",
+    "postalCode": "08316"
+  },
+  {
+    "id": "dpd-06155-pasilaiciu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Pašilaičių IKI DPD paštomatas",
+    "address": "Gabijos g. 36",
+    "postalCode": "06155"
+  },
+  {
+    "id": "dpd-11212-geniu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Genių Norfa DPD paštomatas",
+    "address": "Genių g. 10A",
+    "postalCode": "11212"
+  },
+  {
+    "id": "dpd-06236-giluzio-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Gilužio Maxima DPD paštomatas",
+    "address": "Gilužio g. 5",
+    "postalCode": "06236"
+  },
+  {
+    "id": "dpd-02231-tiskeviciaus-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Tiškevičiaus Maxima DPD paštomatas",
+    "address": "J. Tiškevičiaus g. 22",
+    "postalCode": "02231"
+  },
+  {
+    "id": "dpd-08420-jeruzales-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Jeruzalės Rimi DPD paštomatas",
+    "address": "Jeruzalės g. 4",
+    "postalCode": "08420"
+  },
+  {
+    "id": "dpd-01116-jogailos-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Jogailos DPD paštomatas",
+    "address": "Jogailos g. 4",
+    "postalCode": "01116"
+  },
+  {
+    "id": "dpd-08221-kalvariju-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Kalvarijų Norfa DPD paštomatas",
+    "address": "Kalvarijų g. 151",
+    "postalCode": "08221"
+  },
+  {
+    "id": "dpd-08204-kalvariju-lidl-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Kalvarijų Lidl DPD paštomatas",
+    "address": "Kalvarijų g. 180",
+    "postalCode": "08204"
+  },
+  {
+    "id": "dpd-09109-kareiviu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Kareivių Rimi DPD paštomatas",
+    "address": "Kareivių g. 11A",
+    "postalCode": "09109"
+  },
+  {
+    "id": "dpd-03116-savanoriu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Savanorių RIMI DPD paštomatas",
+    "address": "Kedrų g. 4",
+    "postalCode": "03116"
+  },
+  {
+    "id": "dpd-08121-kestucio-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Kęstučio Maxima DPD paštomatas",
+    "address": "Kęstučio g. 37",
+    "postalCode": "08121"
+  },
+  {
+    "id": "dpd-09306-quadrum-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Quadrum DPD paštomatas",
+    "address": "Konstitucijos pr. 21C",
+    "postalCode": "09306"
+  },
+  {
+    "id": "dpd-27105-grigiskiu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Grigiškių Maxima DPD paštomatas",
+    "address": "Kovo 11-osios g. 38B, Grigiškės",
+    "postalCode": "27105"
+  },
+  {
+    "id": "dpd-04126-lazdyneliu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Lazdynėlių Maxima DPD paštomatas",
+    "address": "Lazdynėlių g. 23",
+    "postalCode": "04126"
+  },
+  {
+    "id": "dpd-08217-linkmenu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Linkmenų RIMI DPD paštomatas",
+    "address": "Linkmenų g. 22",
+    "postalCode": "08217"
+  },
+  {
+    "id": "dpd-03214-mindaugo-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Mindaugo IKI DPD paštomatas",
+    "address": "Mindaugo g. 25",
+    "postalCode": "03214"
+  },
+  {
+    "id": "dpd-02121-minsko-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Minsko Norfa DPD paštomatas",
+    "address": "Minsko pl. 3",
+    "postalCode": "02121"
+  },
+  {
+    "id": "dpd-08421-moletu-pl-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Molėtų pl. Rimi DPD paštomatas",
+    "address": "Molėtų pl. 49",
+    "postalCode": "08421"
+  },
+  {
+    "id": "dpd-11307-kalnenu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Kalnėnų Maxima DPD paštomatas",
+    "address": "Moravų g. 7",
+    "postalCode": "11307"
+  },
+  {
+    "id": "dpd-03160-naugarduko-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Naugarduko Maxima DPD paštomatas",
+    "address": "Naugarduko g. 84",
+    "postalCode": "03160"
+  },
+  {
+    "id": "dpd-10105-nemencines-pl-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Nemenčinės pl. Maxima paštomatas",
+    "address": "Nemenčinės pl. 33",
+    "postalCode": "10105"
+  },
+  {
+    "id": "dpd-10102-milasiaus-orlen-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Milašiaus Orlen DPD paštomatas",
+    "address": "O. Milašiaus g. 31",
+    "postalCode": "10102"
+  },
+  {
+    "id": "dpd-08243-pc-ozas-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC Ozas DPD paštomatas",
+    "address": "Ozo g. 18",
+    "postalCode": "08243"
+  },
+  {
+    "id": "dpd-07150-pc-akropolis-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC Akropolis DPD paštomatas",
+    "address": "Ozo g. 25",
+    "postalCode": "07150"
+  },
+  {
+    "id": "dpd-02210-salininkai-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Salininkai Maxima paštomatas",
+    "address": "P. Žvirkos g. 1",
+    "postalCode": "02210"
+  },
+  {
+    "id": "dpd-06142-pavilnioniu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Pavilnionių Rimi DPD paštomatas",
+    "address": "Pavilnionių g. 22",
+    "postalCode": "06142"
+  },
+  {
+    "id": "dpd-11202-pergales-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Pergalės Maxima DPD paštomatas",
+    "address": "Pergalės g. 40",
+    "postalCode": "11202"
+  },
+  {
+    "id": "dpd-06232-pilaites-moki-vezi-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Pilaitės MOKI-VEŽI paštomatas",
+    "address": "Pilkalnio g. 3",
+    "postalCode": "06232"
+  },
+  {
+    "id": "dpd-06269-pc-pupa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC PUPA DPD paštomatas",
+    "address": "Priegliaus g. 1",
+    "postalCode": "06269"
+  },
+  {
+    "id": "dpd-05272-rygos-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Rygos Norfa DPD paštomatas",
+    "address": "Rygos g. 49",
+    "postalCode": "05272"
+  },
+  {
+    "id": "dpd-06305-s-neries-lidl-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "S. Nėries Lidl DPD paštomatas",
+    "address": "S. Nėries g. 16",
+    "postalCode": "06305"
+  },
+  {
+    "id": "dpd-07133-staneviciaus-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Stanevičiaus IKI DPD paštomatas",
+    "address": "S. Stanevičiaus g. 23",
+    "postalCode": "07133"
+  },
+  {
+    "id": "dpd-08105-pc-panorama-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC Panorama DPD paštomatas",
+    "address": "Saltoniškių g. 9",
+    "postalCode": "08105"
+  },
+  {
+    "id": "dpd-08409-santaros-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Santaros Maxima DPD paštomatas",
+    "address": "Santaros g. 5",
+    "postalCode": "08409"
+  },
+  {
+    "id": "dpd-10227-plytines-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Plytinės IKI DPD paštomatas",
+    "address": "Saulėtekio al. 43",
+    "postalCode": "10227"
+  },
+  {
+    "id": "dpd-04343-sausio-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Sausio Maxima DPD paštomatas",
+    "address": "Sausio 13-osios g. 2",
+    "postalCode": "04343"
+  },
+  {
+    "id": "dpd-04344-sausio-lidl-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Sausio Lidl DPD paštomatas",
+    "address": "Sausio 13-osios g. 3",
+    "postalCode": "04344"
+  },
+  {
+    "id": "dpd-03154-savanoriu-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Savanorių Norfa DPD paštomatas",
+    "address": "Savanorių pr. 176",
+    "postalCode": "03154"
+  },
+  {
+    "id": "dpd-02170-naujininku-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Naujininkų MAXIMA DPD paštomatas",
+    "address": "Šaltkalvių g. 2",
+    "postalCode": "02170"
+  },
+  {
+    "id": "dpd-07157-seskines-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Šeškinės IKI DPD paštomatas",
+    "address": "Šeškinės g. 32",
+    "postalCode": "07157"
+  },
+  {
+    "id": "dpd-11107-naujoji-vilnia-rimi-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Naujoji Vilnia Rimi paštomatas",
+    "address": "Šiaurės g. 37",
+    "postalCode": "11107"
+  },
+  {
+    "id": "dpd-05228-taikos-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Taikos Maxima DPD paštomatas",
+    "address": "Taikos g. 162A",
+    "postalCode": "05228"
+  },
+  {
+    "id": "dpd-09208-tuskulenu-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Tuskulėnų Maxima DPD paštomatas",
+    "address": "Tuskulėnų g. 66",
+    "postalCode": "09208"
+  },
+  {
+    "id": "dpd-07160-topo-centras-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Topo centras DPD paštomatas",
+    "address": "Ukmergės g. 240",
+    "postalCode": "07160"
+  },
+  {
+    "id": "dpd-12107-vilniaus-big-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Vilniaus BIG DPD paštomatas",
+    "address": "Ukmergės g. 369",
+    "postalCode": "12107"
+  },
+  {
+    "id": "dpd-09308-cup-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "CUP DPD paštomatas",
+    "address": "Upės g. 9",
+    "postalCode": "09308"
+  },
+  {
+    "id": "dpd-02302-vaduvos-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Vaduvos IKI DPD paštomatas",
+    "address": "Vaduvos g. 4A",
+    "postalCode": "02302"
+  },
+  {
+    "id": "dpd-12151-tarandes-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Tarandės Rimi DPD paštomatas",
+    "address": "Vaivadiškių g. 2",
+    "postalCode": "12151"
+  },
+  {
+    "id": "dpd-06204-pilaites-pc-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Pilaitės PC Rimi DPD paštomatas",
+    "address": "Vydūno g. 4",
+    "postalCode": "06204"
+  },
+  {
+    "id": "dpd-02188-nordika-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Nordika DPD paštomatas",
+    "address": "Vikingų g. 3",
+    "postalCode": "02188"
+  },
+  {
+    "id": "dpd-05112-pc-mada-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "PC Mada DPD paštomatas",
+    "address": "Viršuliškių g. 40",
+    "postalCode": "05112"
+  },
+  {
+    "id": "dpd-01205-uzupio-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Užupio Rimi DPD paštomatas",
+    "address": "Zarasų g. 5A",
+    "postalCode": "01205"
+  },
+  {
+    "id": "dpd-09121-saltinelis-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Šaltinėlis IKI DPD paštomatas",
+    "address": "Žirmūnų g. 106E",
+    "postalCode": "09121"
+  },
+  {
+    "id": "dpd-09214-zirmunu-iki-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Žirmūnų IKI DPD paštomatas",
+    "address": "Žirmūnų g. 2",
+    "postalCode": "09214"
+  },
+  {
+    "id": "dpd-09131-zirmunu-rimi-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Vilnius",
+    "name": "Žirmūnų RIMI DPD paštomatas",
+    "address": "Žirmūnų g. 64",
+    "postalCode": "09131"
+  },
+  {
+    "id": "dpd-31212-draugystes-norfa-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Visaginas",
+    "name": "Draugystės Norfa DPD paštomatas",
+    "address": "Draugystės g. 9",
+    "postalCode": "31212"
+  },
+  {
+    "id": "dpd-31138-pc-domino-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Visaginas",
+    "name": "PC Domino DPD paštomatas",
+    "address": "Veteranų g. 2",
+    "postalCode": "31138"
+  },
+  {
+    "id": "dpd-32132-bukonto-maxima-dpd-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Zarasai",
+    "name": "Bukonto Maxima DPD paštomatas",
+    "address": "Bukonto g. 7",
+    "postalCode": "32132"
+  },
+  {
+    "id": "dpd-56235-ziezmariu-maxima-pastomatas",
+    "carrier": "dpd",
+    "country": "LT",
+    "city": "Žiežmariai",
+    "name": "Žiežmarių Maxima paštomatas",
+    "address": "Žaslių g. 78",
+    "postalCode": "56235"
+  }
+]

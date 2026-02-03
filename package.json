@@ -1,0 +1,33 @@
+{
+  "name": "forever-lilies-storefront",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "clean": "node scripts/clean-next.mjs",
+    "clean:hard": "node scripts/clean-next.mjs --hard",
+    "clean:next": "node scripts/clean-next.mjs",
+    "doctor": "node scripts/doctor.mjs",
+    "dev:clean": "npm run doctor && npm run clean && next dev",
+    "dev:reset": "npm run clean:hard && npm install && next dev",
+    "build:clean": "npm run clean && next build",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@paypal/react-paypal-js": "^8.2.1",
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.4.5"
+  }
+}
