@@ -1,7 +1,12 @@
 "use client";
 
 import { FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { PayPalButtons, PayPalScriptProvider, usePayPalScriptReducer } from "@paypal/react-paypal-js";
+import {
+  PayPalButtons,
+  PayPalScriptProvider,
+  usePayPalScriptReducer,
+  type ReactPayPalScriptOptions
+} from "@paypal/react-paypal-js";
 import Image from "next/image";
 import type { CartItem } from "@/components/CartProvider";
 import { getShipping } from "@/lib/shipping";
@@ -75,7 +80,7 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
     );
   }
 
-  const options: Record<string, string> = {
+  const options: ReactPayPalScriptOptions = {
     clientId: paypalClientId as string,
     currency: "EUR",
     intent: "capture",
