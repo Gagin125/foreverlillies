@@ -396,7 +396,7 @@ export const translations = {
         },
         {
           q: "Ar yra pristatymas ar atsiėmimas?",
-          a: "Abi galimybės. Siunčiu Baltijos šalyse, galimas ir atsiėmimas vietoje."
+          a: "Abi galimybės. Siunčiu į Lietuvą ir Lenkiją, galimas ir atsiėmimas vietoje."
         },
         {
           q: "Kiek ilgai jos laikosi ir kaip prižiūrėti?",
