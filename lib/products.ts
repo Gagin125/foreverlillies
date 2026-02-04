@@ -95,10 +95,7 @@ export const products: Product[] = [
     sku: "CUSTOM",
     basePrice: 0,
     images: [
-      "/products/lily-5.png",
-      "/products/lily-5.png",
-      "/products/lily-5.png",
-      "/products/lily-5.png"
+      "/products/productscustom_order.png"
     ],
     name: { en: "Custom Order", lt: "Individualus užsakymas" },
     shortDesc: {

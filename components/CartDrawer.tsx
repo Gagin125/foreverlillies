@@ -10,6 +10,7 @@ import { colorOptions, packagingOptions, products, sizeOptions } from "@/lib/pro
 export default function CartDrawer() {
   const { items, isOpen, closeCart, updateQuantity, removeItem, subtotal } = useCart();
   const { t, lang } = useLanguage();
+  const checkoutEnabled = process.env.NEXT_PUBLIC_CHECKOUT_ENABLED === "true";
 
   return (
     <div
@@ -24,7 +25,7 @@ export default function CartDrawer() {
         onClick={closeCart}
       />
       <aside
-        className={`absolute right-0 top-0 h-full w-full max-w-sm bg-white p-6 shadow-soft transition ${
+        className={`absolute right-0 top-0 flex h-full w-full max-w-sm flex-col bg-white p-4 shadow-soft transition sm:p-6 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         aria-hidden={!isOpen}
@@ -40,7 +41,7 @@ export default function CartDrawer() {
           </button>
         </div>
 
-        <div className="mt-6 space-y-4">
+        <div className="mt-6 flex-1 space-y-4 overflow-y-auto pr-1">
           {items.length === 0 ? (
             <p className="text-sm text-ink/60">{t("cart.empty")}</p>
           ) : (
@@ -49,7 +50,7 @@ export default function CartDrawer() {
               const productName = product?.name[lang] ?? item.name;
               return (
                 <div key={item.id} className="flex gap-3">
-                  <div className="relative h-16 w-16 overflow-hidden rounded-xl bg-cream">
+                  <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-cream sm:h-16 sm:w-16">
                     {product && (
                       <Image src={product.images[1]} alt={item.name} fill sizes="80px" className="object-contain" />
                     )}
@@ -74,7 +75,7 @@ export default function CartDrawer() {
                       <button
                         type="button"
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="h-6 w-6 rounded-full border border-black/10"
+                        className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-sm sm:h-6 sm:w-6 sm:text-xs"
                       >
                         -
                       </button>
@@ -82,7 +83,7 @@ export default function CartDrawer() {
                       <button
                         type="button"
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="h-6 w-6 rounded-full border border-black/10"
+                        className="flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-sm sm:h-6 sm:w-6 sm:text-xs"
                       >
                         +
                       </button>
@@ -111,13 +112,23 @@ export default function CartDrawer() {
           </div>
           <p className="mt-2 text-xs text-ink/60">{t("cart.shippingNote")}</p>
           <div className="mt-4 flex flex-col gap-3">
-            <Link
-              href="/checkout"
-              onClick={closeCart}
-              className="rounded-full bg-cherry px-4 py-2 text-center text-xs font-semibold text-white"
-            >
-              {t("cart.checkout")}
-            </Link>
+            {checkoutEnabled ? (
+              <Link
+                href="/checkout"
+                onClick={closeCart}
+                className="rounded-full bg-cherry px-4 py-2 text-center text-xs font-semibold text-white"
+              >
+                {t("cart.checkout")}
+              </Link>
+            ) : (
+              <button
+                type="button"
+                disabled
+                className="rounded-full bg-cherry/40 px-4 py-2 text-center text-xs font-semibold text-white/80"
+              >
+                {t("cart.checkout")}
+              </button>
+            )}
             <button
               type="button"
               onClick={closeCart}

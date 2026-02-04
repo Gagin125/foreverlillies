@@ -30,9 +30,9 @@ export default function ProductCard({ product }: { product: Product }) {
   return (
     <div className="product-card halo-card rounded-2xl bg-white p-5 shadow-soft">
       <Link href={`/products/${product.slug}`} className="flex flex-1 flex-col">
-        <div className="product-media relative mx-auto flex h-48 w-full max-w-[220px] items-center justify-center">
+        <div className="product-media relative mx-auto flex h-40 w-full max-w-[200px] items-center justify-center sm:h-48 sm:max-w-[220px]">
           <Image
-            src={product.images[1]}
+            src={product.images[0]}
             alt={product.name[lang]}
             fill
             sizes="200px"

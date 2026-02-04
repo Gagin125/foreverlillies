@@ -11,8 +11,8 @@ export default function PaymentSuccessContent() {
 
   return (
     <main className="mx-auto w-full max-w-3xl px-4 py-16 md:px-6">
-      <div className="rounded-3xl bg-white p-10 text-center shadow-soft">
-        <h1 className="text-3xl font-semibold text-ink">{t("success.title")}</h1>
+      <div className="rounded-3xl bg-white p-6 text-center shadow-soft sm:p-10">
+        <h1 className="text-2xl font-semibold text-ink sm:text-3xl">{t("success.title")}</h1>
         <p className="mt-3 text-sm text-ink/70">{t("success.subtitle")}</p>
         {amount && (
           <p className="mt-3 text-sm text-ink/60">

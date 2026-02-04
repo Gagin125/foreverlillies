@@ -31,11 +31,6 @@ export default function CheckoutContent() {
     enabled?: boolean;
   } | null>(null);
   const [paypalConfigError, setPaypalConfigError] = useState(false);
-  const returnUrl =
-    typeof window !== "undefined"
-      ? `${window.location.origin}/payment-success?amount=${subtotal.toFixed(2)}`
-      : "";
-
   const addOnsTotal = useMemo(
     () =>
       items.reduce((sum, item) => {
@@ -58,7 +53,14 @@ export default function CheckoutContent() {
   );
 
   const baseSubtotal = subtotal - addOnsTotal;
-  const total = baseSubtotal + addOnsTotal + shipping.cost;
+  const taxBase = subtotal + shipping.cost;
+  const tax = useMemo(() => Number((taxBase * 0.03).toFixed(2)), [taxBase]);
+  const total = subtotal + shipping.cost + tax;
+
+  const returnUrl =
+    typeof window !== "undefined"
+      ? `${window.location.origin}/payment-success?amount=${total.toFixed(2)}`
+      : "";
 
   useEffect(() => {
     let active = true;
@@ -111,9 +113,9 @@ export default function CheckoutContent() {
 
   return (
     <main className="mx-auto w-full max-w-6xl px-4 py-14 md:px-6">
-      <div className="grid gap-8 md:grid-cols-[1fr_0.9fr]">
-        <div className="rounded-2xl bg-white p-6 shadow-soft">
-          <h1 className="text-2xl font-semibold text-ink">{t("checkout.title")}</h1>
+      <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
+        <div className="rounded-2xl bg-white p-5 shadow-soft sm:p-6">
+          <h1 className="text-2xl font-semibold text-ink sm:text-3xl">{t("checkout.title")}</h1>
           <p className="mt-2 text-sm text-ink/70">{t("checkout.intro")}</p>
           <div className="mt-6">
             <h2 className="text-sm font-semibold text-ink">{t("checkout.payment")}</h2>
@@ -132,7 +134,7 @@ export default function CheckoutContent() {
           </div>
         </div>
 
-        <aside className="rounded-2xl bg-white p-6 shadow-soft">
+        <aside className="rounded-2xl bg-white p-5 shadow-soft sm:p-6">
           <h2 className="text-sm font-semibold text-ink">{t("checkout.orderSummary")}</h2>
           <div className="mt-4 space-y-3 text-sm">
             {items.map((item) => {
@@ -174,6 +176,10 @@ export default function CheckoutContent() {
             <div className="mt-2 flex items-center justify-between text-ink/70">
               <span>{t("checkout.shipping")}</span>
               <span>{formatPrice(shipping.cost)}</span>
+            </div>
+            <div className="mt-2 flex items-center justify-between text-ink/70">
+              <span>{t("checkout.tax")}</span>
+              <span>{formatPrice(tax)}</span>
             </div>
             <div className="mt-3 flex items-center justify-between text-base font-semibold text-ink">
               <span>{t("checkout.total")}</span>

@@ -50,7 +50,8 @@ export async function POST(request: Request) {
 
     const summary = buildCartSummary(items);
     const shippingCost = getShipping({ method: deliveryMethod, country, carrier });
-    const totalValue = (summary.subtotal + shippingCost.cost).toFixed(2);
+    const taxValue = ((summary.subtotal + shippingCost.cost) * 0.03).toFixed(2);
+    const totalValue = (summary.subtotal + shippingCost.cost + Number(taxValue)).toFixed(2);
     const itemTotalValue = summary.subtotal.toFixed(2);
     const shippingValue = shippingCost.cost.toFixed(2);
 
@@ -75,6 +76,7 @@ export async function POST(request: Request) {
       items: summary.items,
       itemTotal: itemTotalValue,
       shipping: shippingCost.cost > 0 ? shippingValue : undefined,
+      tax: Number(taxValue) > 0 ? taxValue : undefined,
       description,
       note
     });

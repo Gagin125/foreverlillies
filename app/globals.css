@@ -14,6 +14,12 @@ body {
   @apply bg-cream text-ink;
 }
 
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
 body.cart-open .site-main {
   transform: translateX(-12px);
 }

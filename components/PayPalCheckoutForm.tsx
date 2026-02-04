@@ -127,11 +127,19 @@ function PayPalCheckoutFormCore({
     country: checkoutDetails.shipping.country,
     carrier: checkoutDetails.shipping.carrier
   });
-  const paypalEnabled = paypalReady && paypalEnabledProp;
+  const paypalConfigured = paypalReady && paypalEnabledProp;
+  const paypalEnabled = paypalConfigured;
   const paypalAvailable = paypalEnabled && sdkReady && !sdkFailed;
   const applePayEnabled = false;
   const googlePayEnabled = false;
-  const totalAmount = useMemo(() => (subtotal + shippingInfo.cost).toFixed(2), [subtotal, shippingInfo.cost]);
+  const taxAmount = useMemo(
+    () => Number(((subtotal + shippingInfo.cost) * 0.03).toFixed(2)),
+    [subtotal, shippingInfo.cost]
+  );
+  const totalAmount = useMemo(
+    () => (subtotal + shippingInfo.cost + taxAmount).toFixed(2),
+    [subtotal, shippingInfo.cost, taxAmount]
+  );
 
   const itemsRef = useRef(items);
   const detailsRef = useRef(checkoutDetails);
@@ -340,7 +348,10 @@ function PayPalCheckoutFormCore({
       setError(t("checkout.missingFields"));
       return;
     }
-    if (!cardFieldsRef.current) return;
+    if (!paypalConfigured || !sdkReady || !cardFieldsRef.current) {
+      setError("Payments are not configured yet.");
+      return;
+    }
     setIsLoading(true);
     setError(null);
     try {
@@ -657,12 +668,6 @@ function PayPalCheckoutFormCore({
         )}
       </div>
 
-      {!paypalReady && (
-        <div className="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700">
-          Payments temporarily disabled.
-        </div>
-      )}
-
       <div className="flex flex-wrap items-center gap-2.5">
         <button
           type="button"
@@ -738,7 +743,6 @@ function PayPalCheckoutFormCore({
                   <input
                     className="w-full text-sm text-ink placeholder:text-ink/40 focus:outline-none"
                     placeholder="1234 1234 1234 1234"
-                    disabled
                   />
                 )}
                 <div className="pointer-events-none absolute right-3 top-1/2 flex -translate-y-1/2 gap-1">
@@ -758,7 +762,6 @@ function PayPalCheckoutFormCore({
                     <input
                       className="w-full text-sm text-ink placeholder:text-ink/40 focus:outline-none"
                       placeholder="MM / YY"
-                      disabled
                     />
                   )}
                 </div>
@@ -772,7 +775,6 @@ function PayPalCheckoutFormCore({
                     <input
                       className="w-full text-sm text-ink placeholder:text-ink/40 focus:outline-none"
                       placeholder="CVC"
-                      disabled
                     />
                   )}
                 </div>
@@ -796,7 +798,7 @@ function PayPalCheckoutFormCore({
 
           <button
             type="submit"
-            disabled={isLoading || !cardEligible || !paypalEnabled || !sdkReady || !isFormValid}
+            disabled={isLoading || !isFormValid || (paypalConfigured ? !cardEligible || !sdkReady : false)}
             className="w-full rounded-full bg-[#C1121F] px-4 py-3 text-sm font-semibold text-white disabled:opacity-60"
           >
             {isLoading ? t("checkout.processing") : t("checkout.pay")}

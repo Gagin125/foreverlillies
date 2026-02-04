@@ -7,7 +7,7 @@ export default function Testimonials() {
   const testimonials = t("copy.testimonials") as { quote: string; name: string }[];
 
   return (
-    <div className="grid gap-4 md:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {testimonials.map((item) => (
         <div key={item.name} className="rounded-2xl bg-white p-5 shadow-soft">
           <p className="text-sm text-ink/80">"{item.quote}"</p>

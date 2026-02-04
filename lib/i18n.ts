@@ -107,6 +107,7 @@ export const translations = {
       comingSoon: "Coming soon.",
       missingFields: "Please fill in the required fields.",
       addOns: "Add-ons",
+      tax: "Tax (3%)",
       shipping: "Shipping",
       total: "Total",
       cardNumber: "Card number",
@@ -134,6 +135,14 @@ export const translations = {
       delivery: "Pickup or shipping",
       pickup: "Pickup",
       shipping: "Shipping",
+      country: "Country",
+      carrier: "Carrier",
+      countryLt: "Lithuania",
+      countryPl: "Poland",
+      city: "City",
+      cityPlaceholder: "Enter city",
+      postMachine: "Post machine (name / address / ID)",
+      postMachinePlaceholder: "E.g. DPD Vilnius Akropolis",
       notes: "Notes",
       submit: "Send request",
       success: "Thank you! Your request has been sent. I will reply soon."
@@ -173,7 +182,7 @@ export const translations = {
         },
         {
           q: "Do you ship or offer pickup?",
-          a: "Both. I ship across the Baltic countries and offer local pickup by arrangement."
+          a: "Both. I ship to Lithuania & Poland and offer local pickup by arrangement."
         },
         {
           q: "How long do they last and how do I care for them?",
@@ -312,6 +321,7 @@ export const translations = {
       comingSoon: "Jau greitai.",
       missingFields: "Užpildykite privalomus laukus.",
       addOns: "Papildymai",
+      tax: "Mokestis (3%)",
       shipping: "Pristatymas",
       total: "Iš viso",
       cardNumber: "Kortelės numeris",
@@ -339,6 +349,14 @@ export const translations = {
       delivery: "Atsiimti ar pristatyti",
       pickup: "Atsiimti",
       shipping: "Pristatymas",
+      country: "Šalis",
+      carrier: "Kurjeris",
+      countryLt: "Lietuva",
+      countryPl: "Lenkija",
+      city: "Miestas",
+      cityPlaceholder: "Įrašykite miestą",
+      postMachine: "Paštomatas (pavadinimas / adresas / ID)",
+      postMachinePlaceholder: "Pvz. DPD Vilnius Akropolis",
       notes: "Pastabos",
       submit: "Siųsti užklausą",
       success: "Ačiū! Jūsų užklausa gauta. Greitai atsakysiu."

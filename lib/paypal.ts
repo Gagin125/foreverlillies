@@ -73,6 +73,7 @@ export const createPayPalOrder = async ({
   items,
   itemTotal,
   shipping,
+  tax,
   description,
   note
 }: {
@@ -85,6 +86,7 @@ export const createPayPalOrder = async ({
   }>;
   itemTotal?: string;
   shipping?: string;
+  tax?: string;
   description?: string;
   note?: string;
 }) => {
@@ -105,7 +107,8 @@ export const createPayPalOrder = async ({
             value: total,
             breakdown: {
               item_total: { currency_code: "EUR", value: itemTotal ?? total },
-              ...(shipping ? { shipping: { currency_code: "EUR", value: shipping } } : {})
+              ...(shipping ? { shipping: { currency_code: "EUR", value: shipping } } : {}),
+              ...(tax ? { tax_total: { currency_code: "EUR", value: tax } } : {})
             }
           },
           items

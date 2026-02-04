@@ -3,12 +3,26 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function ProductGallery({ images, alt }: { images: string[]; alt: string }) {
+export default function ProductGallery({
+  images,
+  alt,
+  activeIndex,
+  onActiveChange
+}: {
+  images: string[];
+  alt: string;
+  activeIndex?: number;
+  onActiveChange?: (nextIndex: number) => void;
+}) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    setActive(0);
-  }, [images]);
+    if (typeof activeIndex === "number") {
+      setActive(activeIndex);
+    } else {
+      setActive(0);
+    }
+  }, [images, activeIndex]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -17,17 +31,20 @@ export default function ProductGallery({ images, alt }: { images: string[]; alt:
           src={images[active]}
           alt={alt}
           fill
-          sizes="(max-width: 768px) 90vw, 480px"
+          sizes="(max-width: 768px) 92vw, (max-width: 1024px) 50vw, 520px"
           className="object-contain"
           priority
         />
       </div>
-      <div className="grid grid-cols-5 gap-2">
+      <div className="grid grid-cols-4 gap-2 sm:grid-cols-5 sm:gap-3">
         {images.map((img, index) => (
           <button
             type="button"
-            key={img}
-            onClick={() => setActive(index)}
+            key={`${img}-${index}`}
+            onClick={() => {
+              setActive(index);
+              onActiveChange?.(index);
+            }}
             className={`relative aspect-square overflow-hidden rounded-xl border transition ${
               active === index ? "border-cherry" : "border-black/10"
             }`}

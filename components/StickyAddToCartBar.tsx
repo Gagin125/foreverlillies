@@ -24,11 +24,11 @@ export default function StickyAddToCartBar({ product }: { product: Product }) {
 
   return (
     <div
-      className={`fixed bottom-4 left-1/2 z-40 w-[94%] -translate-x-1/2 rounded-full bg-white shadow-soft transition md:hidden ${
+      className={`fixed bottom-3 left-1/2 z-40 w-[94%] -translate-x-1/2 rounded-full bg-white shadow-soft transition sm:bottom-4 md:hidden ${
         isVisible ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
-      <div className="flex items-center justify-between gap-3 px-4 py-2">
+      <div className="flex items-center justify-between gap-3 px-4 py-2 pb-[calc(env(safe-area-inset-bottom)+8px)]">
         <div>
           <p className="text-xs font-semibold text-ink">{product.name[lang]}</p>
           <p className="text-xs text-cherry">{formatPrice(product.basePrice)}</p>

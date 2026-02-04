@@ -8,11 +8,8 @@ type ShippingResult = {
   note?: string;
 };
 
-const LT_RATES: Partial<Record<Exclude<LockerCarrier, "">, { cost: number; eta: string }>> = {
-  // TODO: set LT locker rates
-  // omniva: { cost: 0, eta: "3–5 business days" },
-  // dpd: { cost: 0, eta: "2–5 business days" }
-};
+const LT_LOCKER_COST = 3;
+const PL_LOCKER_COST = 7;
 
 export const getShipping = (input: {
   method: DeliveryMethod;
@@ -24,13 +21,11 @@ export const getShipping = (input: {
   }
 
   if (input.country === "LT") {
-    const rate = input.carrier ? LT_RATES[input.carrier as Exclude<LockerCarrier, "">] : undefined;
-    if (rate) return { cost: rate.cost, eta: rate.eta };
-    return { cost: 0, note: "TODO: set LT locker rates" };
+    return { cost: LT_LOCKER_COST };
   }
 
   if (input.country === "PL") {
-    return { cost: 0, note: "TODO: Poland locker rates" };
+    return { cost: PL_LOCKER_COST };
   }
 
   return { cost: 0 };

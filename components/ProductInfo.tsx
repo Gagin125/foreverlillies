@@ -58,7 +58,9 @@ export default function ProductInfo({
     <div className="space-y-6">
       <div>
         <p className="text-sm font-semibold text-cherry">{t("product.soldNote")}</p>
-        <h1 className="mt-2 text-3xl font-semibold text-ink md:text-4xl">{product.name[lang]}</h1>
+        <h1 className="mt-2 text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl">
+          {product.name[lang]}
+        </h1>
         <p className="mt-3 text-base text-ink/70">{t("product.benefitHeadline")}</p>
         <div className="mt-4 flex items-center gap-2 text-sm">
           <div className="flex text-gold">*****</div>
@@ -73,7 +75,7 @@ export default function ProductInfo({
         {!isCustom && (
           <div className="mt-3 rounded-2xl border border-black/5 bg-white p-4">
             <p className="text-sm font-semibold text-ink">{t("product.bundleLabel")}</p>
-            <div className="mt-3 grid gap-3 md:grid-cols-3">
+            <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {bundles.map((bundle) => {
                 const save = bundleSavings[bundle.product.slug as keyof typeof bundleSavings];
                 return (
