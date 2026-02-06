@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { appendCustomOrderRow } from "@/lib/googleSheets";
-import { buildCustomOrderRow } from "@/lib/orderLog";
+import { buildCustomOrderRow, type CustomOrderInput } from "@/lib/orderLog";
 import { findLockerById, isLockerValid, type LockerCarrier, type LockerCountry } from "@/data/lockers";
 
 type CustomOrderPayload = {
@@ -94,6 +94,16 @@ export async function POST(request: Request) {
     const orderId = `CUSTOM-${Date.now()}`;
     const date = new Date().toISOString();
 
+    const shippingForLog: CustomOrderInput["shipping"] =
+      deliveryMethod === "shipping"
+        ? {
+            country: payload.shipping?.country,
+            carrier: payload.shipping?.carrier,
+            city: payload.shipping?.city,
+            locker: locker ? { ...locker } : undefined
+          }
+        : undefined;
+
     const row = buildCustomOrderRow({
       orderId,
       date,
@@ -103,7 +113,7 @@ export async function POST(request: Request) {
       quantity,
       notes,
       deliveryMethod,
-      shipping: payload.shipping ?? undefined
+      shipping: shippingForLog
     });
 
     const result = await appendCustomOrderRow(row);
