@@ -100,6 +100,7 @@ export const translations = {
       select: "Select",
       required: "Required",
       name: "Name",
+      lastName: "Last name",
       email: "Email",
       phone: "Phone",
       eta: "Estimated delivery:",
@@ -145,7 +146,9 @@ export const translations = {
       postMachinePlaceholder: "E.g. DPD Vilnius Akropolis",
       notes: "Notes",
       submit: "Send request",
-      success: "Thank you! Your request has been sent. I will reply soon."
+      success: "Thank you! Your request has been sent. I will reply soon.",
+      errorGeneric: "Something went wrong. Please try again.",
+      sheetsMissing: "Google Sheets is not configured."
     },
     contact: {
       title: "Let's create something special",
@@ -314,6 +317,7 @@ export const translations = {
       select: "Pasirinkite",
       required: "Privaloma",
       name: "Vardas",
+      lastName: "Pavardė",
       email: "El. paštas",
       phone: "Telefonas",
       eta: "Numatomas pristatymas:",
@@ -359,7 +363,9 @@ export const translations = {
       postMachinePlaceholder: "Pvz. DPD Vilnius Akropolis",
       notes: "Pastabos",
       submit: "Siųsti užklausą",
-      success: "Ačiū! Jūsų užklausa gauta. Greitai atsakysiu."
+      success: "Ačiū! Jūsų užklausa gauta. Greitai atsakysiu.",
+      errorGeneric: "Kažkas nepavyko. Bandykite dar kartą.",
+      sheetsMissing: "Google Sheets nėra sukonfigūruotas."
     },
     contact: {
       title: "Sukurkime ką nors ypatingo",

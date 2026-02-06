@@ -14,6 +14,13 @@ import {
 export default function CustomOrderForm() {
   const { t } = useLanguage();
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [colors, setColors] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [notes, setNotes] = useState("");
   const [deliveryMethod, setDeliveryMethod] = useState<"pickup" | "shipping">("shipping");
   const [country, setCountry] = useState<LockerCountry>("LT");
   const [carrier, setCarrier] = useState<LockerCarrier | "">("omniva");
@@ -74,9 +81,66 @@ export default function CustomOrderForm() {
   return (
     <form
       className="space-y-4 rounded-2xl border border-black/5 bg-white p-5 shadow-soft sm:p-6"
-      onSubmit={(event) => {
+      onSubmit={async (event) => {
         event.preventDefault();
-        setSent(true);
+        setError(null);
+        setSent(false);
+
+        if (deliveryMethod === "shipping" && (!carrier || !city || !selectedLocker)) {
+          setError(t("checkout.lockerRequired"));
+          return;
+        }
+
+        try {
+          setSubmitting(true);
+          const response = await fetch("/api/custom-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              name,
+              email,
+              colors,
+              quantity,
+              notes,
+              deliveryMethod,
+              shipping:
+                deliveryMethod === "shipping"
+                  ? {
+                      country,
+                      carrier: carrier || undefined,
+                      city,
+                      locker: selectedLocker
+                        ? {
+                            id: selectedLocker.id,
+                            name: selectedLocker.name,
+                            address: selectedLocker.address,
+                            postalCode: selectedLocker.postalCode
+                          }
+                        : null
+                    }
+                  : null
+            })
+          });
+
+          if (!response.ok) {
+            const data = await response.json().catch(() => ({}));
+            if (data?.error === "MISSING_FIELDS") {
+              setError(t("checkout.missingFields"));
+            } else if (data?.error === "SHEETS_NOT_CONFIGURED") {
+              setError(t("customForm.sheetsMissing"));
+            } else {
+              setError(t("customForm.errorGeneric"));
+            }
+            return;
+          }
+
+          setSent(true);
+        } catch (err) {
+          console.error("Custom order submit failed", err);
+          setError(t("customForm.errorGeneric"));
+        } finally {
+          setSubmitting(false);
+        }
       }}
     >
       <div>
@@ -84,6 +148,8 @@ export default function CustomOrderForm() {
         <input
           required
           className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
         />
       </div>
       <div>
@@ -92,6 +158,8 @@ export default function CustomOrderForm() {
           type="email"
           required
           className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
         />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -99,6 +167,8 @@ export default function CustomOrderForm() {
           <label className="text-sm font-semibold text-ink">{t("customForm.colors")}</label>
           <input
             className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+            value={colors}
+            onChange={(event) => setColors(event.target.value)}
           />
         </div>
         <div>
@@ -106,8 +176,9 @@ export default function CustomOrderForm() {
           <input
             type="number"
             min={1}
-            defaultValue={1}
             className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+            value={quantity}
+            onChange={(event) => setQuantity(Number(event.target.value) || 1)}
           />
         </div>
       </div>
@@ -288,14 +359,20 @@ export default function CustomOrderForm() {
         <textarea
           rows={3}
           className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+          value={notes}
+          onChange={(event) => setNotes(event.target.value)}
         />
       </div>
       <button
         type="submit"
-        className="w-full rounded-full bg-cherry px-4 py-2 text-sm font-semibold text-white"
+        disabled={submitting}
+        className="w-full rounded-full bg-cherry px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
       >
-        {t("customForm.submit")}
+        {submitting ? t("checkout.processing") : t("customForm.submit")}
       </button>
+      {error && (
+        <p className="rounded-xl bg-cream px-3 py-2 text-xs text-ink">{error}</p>
+      )}
       {sent && (
         <p className="rounded-xl bg-cream px-3 py-2 text-xs text-ink">
           {t("customForm.success")}

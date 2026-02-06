@@ -15,6 +15,7 @@ export default function CheckoutContent() {
   const { t, lang } = useLanguage();
   const [checkoutDetails, setCheckoutDetails] = useState({
     name: "",
+    lastName: "",
     email: "",
     phone: "",
     shipping: {

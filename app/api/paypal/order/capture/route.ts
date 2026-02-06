@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import { capturePayPalOrder } from "@/lib/paypal";
+import { appendOrderRow } from "@/lib/googleSheets";
+import { buildCartSummary } from "@/lib/cart";
+import { getShipping, type DeliveryMethod, type LockerCarrier, type LockerCountry } from "@/lib/shipping";
+import { buildItemsSummary, buildOrderRow, type CheckoutDetailsInput, type CartItemInput } from "@/lib/orderLog";
 
 export async function POST(request: Request) {
   try {
@@ -21,6 +25,40 @@ export async function POST(request: Request) {
           name: `${capture.payer.name?.given_name ?? ""} ${capture.payer.name?.surname ?? ""}`.trim()
         }
       : null;
+
+    const items = Array.isArray(body.items) ? (body.items as CartItemInput[]) : [];
+    const details = (body.checkoutDetails || {}) as CheckoutDetailsInput;
+
+    if (items.length > 0) {
+      try {
+        const summary = buildCartSummary(items);
+        const shipping = details.shipping || {};
+        const shippingCost = getShipping({
+          method: (shipping.method as DeliveryMethod) || "pickup",
+          country: (shipping.country as LockerCountry) || "",
+          carrier: (shipping.carrier as LockerCarrier) || ""
+        });
+        const taxValue = ((summary.subtotal + shippingCost.cost) * 0.03).toFixed(2);
+        const totalValue = (summary.subtotal + shippingCost.cost + Number(taxValue)).toFixed(2);
+        const itemsSummary = buildItemsSummary(items);
+
+        const row = buildOrderRow({
+          orderId,
+          date: new Date().toISOString(),
+          details,
+          itemsSummary,
+          subtotal: summary.subtotal.toFixed(2),
+          shippingCost: shippingCost.cost.toFixed(2),
+          tax: taxValue,
+          total: totalValue,
+          paymentStatus: capture.status
+        });
+
+        await appendOrderRow(row);
+      } catch (error) {
+        console.error("Google Sheets append failed", error instanceof Error ? error.message : error);
+      }
+    }
 
     return NextResponse.json({ status: capture.status, captureId, payer });
   } catch (error: any) {

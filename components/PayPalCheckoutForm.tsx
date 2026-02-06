@@ -29,6 +29,7 @@ type PayPalCheckoutFormProps = {
   paypalClientToken?: string | null;
   checkoutDetails: {
     name: string;
+    lastName: string;
     email: string;
     phone: string;
     shipping: {
@@ -41,6 +42,7 @@ type PayPalCheckoutFormProps = {
   };
   onChangeCheckoutDetails: (next: {
     name: string;
+    lastName: string;
     email: string;
     phone: string;
     shipping: {
@@ -135,6 +137,7 @@ function PayPalCheckoutFormCore({
   const paypalConfigured = paypalReady && paypalEnabledProp;
   const paypalEnabled = paypalConfigured;
   const paypalAvailable = paypalEnabled && sdkReady && !sdkFailed;
+  const cardFieldsReady = paypalEnabled && sdkReady && cardEligible;
   const applePayEnabled = false;
   const googlePayEnabled = false;
   const taxAmount = useMemo(
@@ -216,6 +219,7 @@ function PayPalCheckoutFormCore({
     const details = detailsRef.current;
     const fields: string[] = [];
     if (!details.name) fields.push("name");
+    if (!details.lastName) fields.push("lastName");
     if (!details.email) fields.push("email");
     if (!details.phone) fields.push("phone");
     if (!details.shipping?.method) fields.push("deliveryMethod");
@@ -261,7 +265,11 @@ function PayPalCheckoutFormCore({
     const response = await fetch("/api/paypal/order/capture", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ orderId })
+      body: JSON.stringify({
+        orderId,
+        items: itemsRef.current,
+        checkoutDetails: detailsRef.current
+      })
     });
     const data = await response.json();
     if (!response.ok) {
@@ -293,7 +301,11 @@ function PayPalCheckoutFormCore({
     const response = await fetch("/api/paypal/capture-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ orderID })
+      body: JSON.stringify({
+        orderID,
+        items: itemsRef.current,
+        checkoutDetails: detailsRef.current
+      })
     });
     const data = await response.json();
     if (!response.ok) {
@@ -374,6 +386,7 @@ function PayPalCheckoutFormCore({
 
   const requiredMissing = [
     checkoutDetails.name ? null : "name",
+    checkoutDetails.lastName ? null : "lastName",
     checkoutDetails.email ? null : "email",
     checkoutDetails.phone ? null : "phone",
     checkoutDetails.shipping.method ? null : "deliveryMethod",
@@ -428,6 +441,17 @@ function PayPalCheckoutFormCore({
               onChange={(e) => onChangeCheckoutDetails({ ...checkoutDetails, name: e.target.value })}
             />
             {touchedPay && missingFields.includes("name") && (
+              <p className="mt-1 text-xs text-cherry">{t("checkout.required")}</p>
+            )}
+          </div>
+          <div>
+            <label className="text-[12px] font-semibold text-ink/70">{t("checkout.lastName")}</label>
+            <input
+              className="mt-2 w-full rounded-lg border border-black/10 px-3 py-2 text-sm text-ink"
+              value={checkoutDetails.lastName}
+              onChange={(e) => onChangeCheckoutDetails({ ...checkoutDetails, lastName: e.target.value })}
+            />
+            {touchedPay && missingFields.includes("lastName") && (
               <p className="mt-1 text-xs text-cherry">{t("checkout.required")}</p>
             )}
           </div>
@@ -742,7 +766,7 @@ function PayPalCheckoutFormCore({
             <div>
               <p className="mb-2 text-[12px] font-semibold text-ink/70">{t("checkout.cardNumber")}</p>
               <div className="relative rounded-lg border border-black/10 bg-white px-4 py-3">
-                {sdkReady && paypalEnabled ? (
+                {cardFieldsReady ? (
                   <div id="pp-card-number" className="min-h-[20px]" />
                 ) : (
                   <input
@@ -761,7 +785,7 @@ function PayPalCheckoutFormCore({
               <div>
                 <p className="mb-2 text-[12px] font-semibold text-ink/70">{t("checkout.expiry")}</p>
                 <div className="rounded-lg border border-black/10 bg-white px-4 py-3">
-                  {sdkReady && paypalEnabled ? (
+                  {cardFieldsReady ? (
                     <div id="pp-card-expiry" className="min-h-[20px]" />
                   ) : (
                     <input
@@ -774,7 +798,7 @@ function PayPalCheckoutFormCore({
               <div>
                 <p className="mb-2 text-[12px] font-semibold text-ink/70">{t("checkout.cvc")}</p>
                 <div className="rounded-lg border border-black/10 bg-white px-4 py-3">
-                  {sdkReady && paypalEnabled ? (
+                  {cardFieldsReady ? (
                     <div id="pp-card-cvv" className="min-h-[20px]" />
                   ) : (
                     <input
@@ -791,11 +815,8 @@ function PayPalCheckoutFormCore({
               <select
                 className="w-full rounded-lg border border-black/10 bg-white px-4 py-3 text-sm text-ink"
                 defaultValue="LT"
-                disabled={!sdkReady || !paypalEnabled}
               >
                 <option value="LT">Lithuania</option>
-                <option value="LV">Latvia</option>
-                <option value="EE">Estonia</option>
                 <option value="PL">Poland</option>
               </select>
             </div>

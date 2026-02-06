@@ -12,6 +12,7 @@ export async function POST(request: Request) {
 
     const missingFields: string[] = [];
     if (!details.name) missingFields.push("name");
+    if (!details.lastName) missingFields.push("lastName");
     if (!details.email) missingFields.push("email");
     if (!details.phone) missingFields.push("phone");
 
@@ -69,7 +70,8 @@ export async function POST(request: Request) {
         ? `${locker?.name ?? "Locker"} | ${locker?.address ?? ""} | ${city} | ${lockerId}`
         : "N/A";
     const description = `${deliveryLine} | Locker: ${lockerLabel}`;
-    const note = `${details.name} | ${details.email} | ${details.phone}`;
+    const fullName = [details.name, details.lastName].filter(Boolean).join(" ").trim();
+    const note = `${fullName || details.name || ""} | ${details.email} | ${details.phone}`;
 
     const order = await createPayPalOrder({
       total: totalValue,
