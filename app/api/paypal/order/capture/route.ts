@@ -32,12 +32,13 @@ export async function POST(request: Request) {
     if (items.length > 0) {
       try {
         const summary = buildCartSummary(items);
-        const shipping = details.shipping || {};
-        const shippingCost = getShipping({
-          method: (shipping.method as DeliveryMethod) || "pickup",
-          country: (shipping.country as LockerCountry) || "",
-          carrier: (shipping.carrier as LockerCarrier) || ""
-        });
+        const shipping = details.shipping;
+        const method: DeliveryMethod = shipping?.method === "locker" ? "locker" : "pickup";
+        const country: LockerCountry =
+          shipping?.country === "PL" ? "PL" : shipping?.country === "LT" ? "LT" : "";
+        const carrier: LockerCarrier =
+          shipping?.carrier === "dpd" ? "dpd" : shipping?.carrier === "omniva" ? "omniva" : "";
+        const shippingCost = getShipping({ method, country, carrier });
         const taxValue = ((summary.subtotal + shippingCost.cost) * 0.03).toFixed(2);
         const totalValue = (summary.subtotal + shippingCost.cost + Number(taxValue)).toFixed(2);
         const itemsSummary = buildItemsSummary(items);
