@@ -129,8 +129,10 @@ export const translations = {
     customForm: {
       title: "Request a custom bouquet",
       intro: "Tell me your colors, size, and occasion. I will reply with options and pricing.",
-      name: "Name",
+      firstName: "First name",
+      lastName: "Last name",
       email: "Email",
+      phone: "Phone number",
       colors: "Desired colors",
       quantity: "Quantity",
       delivery: "Pickup or shipping",
@@ -346,8 +348,10 @@ export const translations = {
     customForm: {
       title: "Individualus užsakymas",
       intro: "Parašykite norimas spalvas, dydį ir progą. Atsakysiu su pasiūlymais ir kaina.",
-      name: "Vardas",
+      firstName: "Vardas",
+      lastName: "Pavard?",
       email: "El. paštas",
+      phone: "Telefono numeris",
       colors: "Norimos spalvos",
       quantity: "Kiekis",
       delivery: "Atsiimti ar pristatyti",

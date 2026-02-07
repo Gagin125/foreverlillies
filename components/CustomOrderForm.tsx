@@ -16,8 +16,10 @@ export default function CustomOrderForm() {
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [colors, setColors] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [notes, setNotes] = useState("");
@@ -97,8 +99,10 @@ export default function CustomOrderForm() {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              name,
+              firstName,
+              lastName,
               email,
+              phone,
               colors,
               quantity,
               notes,
@@ -143,14 +147,25 @@ export default function CustomOrderForm() {
         }
       }}
     >
-      <div>
-        <label className="text-sm font-semibold text-ink">{t("customForm.name")}</label>
-        <input
-          required
-          className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label className="text-sm font-semibold text-ink">{t("customForm.firstName")}</label>
+          <input
+            required
+            className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
+          />
+        </div>
+        <div>
+          <label className="text-sm font-semibold text-ink">{t("customForm.lastName")}</label>
+          <input
+            required
+            className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+            value={lastName}
+            onChange={(event) => setLastName(event.target.value)}
+          />
+        </div>
       </div>
       <div>
         <label className="text-sm font-semibold text-ink">{t("customForm.email")}</label>
@@ -160,6 +175,16 @@ export default function CustomOrderForm() {
           className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+        />
+      </div>
+      <div>
+        <label className="text-sm font-semibold text-ink">{t("customForm.phone")}</label>
+        <input
+          type="tel"
+          required
+          className="mt-2 w-full rounded-xl border border-black/10 bg-cream/60 px-3 py-2 text-sm"
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
         />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">

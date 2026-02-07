@@ -103,8 +103,10 @@ export const buildOrderRow = (input: {
 export type CustomOrderInput = {
   orderId: string;
   date: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
+  phone?: string;
   colors?: string;
   quantity?: number;
   notes?: string;
@@ -123,7 +125,6 @@ export type CustomOrderInput = {
 };
 
 export const buildCustomOrderRow = (input: CustomOrderInput) => {
-  const { first, last } = splitName(input.name);
   const shipping = input.shipping;
   const locker = shipping?.locker;
   const qty = input.quantity ? String(input.quantity) : "";
@@ -132,10 +133,10 @@ export const buildCustomOrderRow = (input: CustomOrderInput) => {
     "Custom Order",
     input.orderId,
     input.date,
-    first,
-    last,
+    input.firstName,
+    input.lastName,
     input.email,
-    "",
+    input.phone ?? "",
     input.colors ?? "",
     qty,
     input.deliveryMethod === "shipping" ? "Delivery" : "Pickup",

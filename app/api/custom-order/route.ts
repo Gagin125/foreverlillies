@@ -4,8 +4,10 @@ import { buildCustomOrderRow, type CustomOrderInput } from "@/lib/orderLog";
 import { findLockerById, isLockerValid, type LockerCarrier, type LockerCountry } from "@/data/lockers";
 
 type CustomOrderPayload = {
-  name?: string;
+  firstName?: string;
+  lastName?: string;
   email?: string;
+  phone?: string;
   colors?: string;
   quantity?: number | string;
   notes?: string;
@@ -27,16 +29,20 @@ export async function POST(request: Request) {
   try {
     const payload = (await request.json()) as CustomOrderPayload;
 
-    const name = String(payload.name ?? "").trim();
+    const firstName = String(payload.firstName ?? "").trim();
+    const lastName = String(payload.lastName ?? "").trim();
     const email = String(payload.email ?? "").trim();
+    const phone = String(payload.phone ?? "").trim();
     const colors = String(payload.colors ?? "").trim();
     const notes = String(payload.notes ?? "").trim();
     const quantity = Number(payload.quantity ?? 1);
     const deliveryMethod = payload.deliveryMethod === "shipping" ? "shipping" : "pickup";
 
     const missing: string[] = [];
-    if (!name) missing.push("name");
+    if (!firstName) missing.push("firstName");
+    if (!lastName) missing.push("lastName");
     if (!email) missing.push("email");
+    if (!phone) missing.push("phone");
     if (Number.isNaN(quantity) || quantity < 1) missing.push("quantity");
 
     const shipping = payload.shipping;
@@ -107,8 +113,10 @@ export async function POST(request: Request) {
     const row = buildCustomOrderRow({
       orderId,
       date,
-      name,
+      firstName,
+      lastName,
       email,
+      phone,
       colors,
       quantity,
       notes,
