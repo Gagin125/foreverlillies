@@ -95,7 +95,7 @@ export const appendCustomOrderRow = async (row: (string | number | null)[]) => {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: config.sheetId,
-    range: `${customTab}!A:N`,
+    range: `${customTab}!A:O`,
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [row]

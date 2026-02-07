@@ -143,6 +143,7 @@ export const buildCustomOrderRow = (input: CustomOrderInput) => {
     shipping?.country ?? "",
     shipping?.carrier ?? "",
     shipping?.city ?? "",
-    locker?.name || locker?.id || ""
+    locker?.name || locker?.id || "",
+    input.notes ?? ""
   ];
 };
