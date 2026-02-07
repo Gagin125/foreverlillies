@@ -128,14 +128,6 @@ export const buildCustomOrderRow = (input: CustomOrderInput) => {
   const locker = shipping?.locker;
   const qty = input.quantity ? String(input.quantity) : "";
 
-  const itemsSummary = [
-    input.colors ? `colors: ${input.colors}` : null,
-    qty ? `qty: ${qty}` : null,
-    input.notes ? `notes: ${input.notes}` : null
-  ]
-    .filter(Boolean)
-    .join(" | ");
-
   return [
     "Custom Order",
     input.orderId,
@@ -144,16 +136,12 @@ export const buildCustomOrderRow = (input: CustomOrderInput) => {
     last,
     input.email,
     "",
+    input.colors ?? "",
+    qty,
     input.deliveryMethod === "shipping" ? "Delivery" : "Pickup",
     shipping?.country ?? "",
     shipping?.carrier ?? "",
     shipping?.city ?? "",
-    locker?.name || locker?.id || "",
-    itemsSummary,
-    "",
-    "",
-    "",
-    "",
-    "Requested"
+    locker?.name || locker?.id || ""
   ];
 };

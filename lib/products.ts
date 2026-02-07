@@ -39,7 +39,7 @@ export const products: Product[] = [
   {
     slug: "1-lily",
     sku: "LILY-1",
-    basePrice: 4.5,
+    basePrice: 0.1,
     images: [
       "/products/lily-1.png",
       "/products/lily-1.png",

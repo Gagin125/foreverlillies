@@ -8,6 +8,8 @@ type ShippingResult = {
   note?: string;
 };
 
+// TEMP test pricing: Omniva LT = 0.10 EUR
+const LT_OMNIVA_LOCKER_COST = 0.1;
 const LT_LOCKER_COST = 3;
 const PL_LOCKER_COST = 7;
 
@@ -21,6 +23,9 @@ export const getShipping = (input: {
   }
 
   if (input.country === "LT") {
+    if (input.carrier === "omniva") {
+      return { cost: LT_OMNIVA_LOCKER_COST };
+    }
     return { cost: LT_LOCKER_COST };
   }
 
