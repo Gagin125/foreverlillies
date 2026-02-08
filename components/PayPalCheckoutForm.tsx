@@ -8,6 +8,7 @@ import {
   type ReactPayPalScriptOptions
 } from "@paypal/react-paypal-js";
 import Image from "next/image";
+import Script from "next/script";
 import type { CartItem } from "@/components/CartProvider";
 import { getShipping } from "@/lib/shipping";
 import { useLanguage } from "@/components/LanguageProvider";
@@ -86,7 +87,7 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
     clientId: paypalClientId as string,
     currency: "EUR",
     intent: "capture",
-    components: "buttons,card-fields",
+    components: "buttons,card-fields,applepay",
     enableFunding: "applepay"
   };
 
@@ -96,6 +97,10 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
 
   return (
     <PayPalScriptProvider options={options}>
+      <Script
+        src="https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js"
+        strategy="afterInteractive"
+      />
       <PayPalCheckoutFormWithSdk {...props} />
     </PayPalScriptProvider>
   );
@@ -116,13 +121,14 @@ function PayPalCheckoutFormCore({
   paypalReady,
   scriptState
 }: PayPalCheckoutFormProps & { paypalReady: boolean; scriptState: ScriptState }) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const [selectedMethod, setSelectedMethod] = useState<MethodKey>("card");
   const { isResolved, isPending, isRejected } = scriptState;
   const sdkReady = isResolved;
   const sdkFailed = isRejected;
   const [cardEligible, setCardEligible] = useState(true);
   const [applePayEligible, setApplePayEligible] = useState(false);
+  const [applePaySdkReady, setApplePaySdkReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -140,7 +146,8 @@ function PayPalCheckoutFormCore({
   const paypalEnabled = paypalConfigured;
   const paypalAvailable = paypalEnabled && sdkReady && !sdkFailed;
   const cardFieldsReady = paypalEnabled && sdkReady && cardEligible;
-  const applePayEnabled = paypalAvailable && applePayEligible;
+  const applePaySelectable = paypalAvailable;
+  const applePayEnabled = applePaySelectable && applePayEligible;
   const googlePayEnabled = false;
   const taxAmount = useMemo(
     () => Number(((subtotal + shippingInfo.cost) * 0.03).toFixed(2)),
@@ -154,6 +161,8 @@ function PayPalCheckoutFormCore({
   const itemsRef = useRef(items);
   const detailsRef = useRef(checkoutDetails);
   const cardFieldsRef = useRef<any>(null);
+  const applePayConfigRef = useRef<any>(null);
+  const applePayButtonRef = useRef<HTMLDivElement | null>(null);
 
   const availableCities = useMemo(() => {
     if (!checkoutDetails.shipping.country) return [];
@@ -360,23 +369,52 @@ function PayPalCheckoutFormCore({
   }, [sdkReady, createOrder, captureOrder, returnUrl]);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    if ((window as any).ApplePaySession) {
+      setApplePaySdkReady(true);
+      return;
+    }
+    const interval = setInterval(() => {
+      if ((window as any).ApplePaySession) {
+        setApplePaySdkReady(true);
+        clearInterval(interval);
+      }
+    }, 200);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
     if (!paypalAvailable || !window.paypal) {
+      applePayConfigRef.current = null;
       setApplePayEligible(false);
       return;
     }
 
     const paypal = (window as any).paypal;
-    try {
-      if (!paypal?.Buttons || !paypal?.FUNDING?.APPLEPAY) {
-        setApplePayEligible(false);
-        return;
-      }
-      const eligible = paypal.Buttons({ fundingSource: paypal.FUNDING.APPLEPAY }).isEligible();
-      setApplePayEligible(Boolean(eligible));
-    } catch {
+    const ApplePaySession = (window as any).ApplePaySession;
+    if (!applePaySdkReady || !ApplePaySession || !paypal?.Applepay) {
+      applePayConfigRef.current = null;
       setApplePayEligible(false);
+      return;
     }
-  }, [paypalAvailable]);
+    if (!ApplePaySession.canMakePayments()) {
+      applePayConfigRef.current = null;
+      setApplePayEligible(false);
+      return;
+    }
+
+    paypal
+      .Applepay()
+      .config()
+      .then((config: any) => {
+        applePayConfigRef.current = config;
+        setApplePayEligible(Boolean(config?.isEligible));
+      })
+      .catch(() => {
+        applePayConfigRef.current = null;
+        setApplePayEligible(false);
+      });
+  }, [applePaySdkReady, paypalAvailable]);
 
   const handleCardSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -399,6 +437,125 @@ function PayPalCheckoutFormCore({
       setIsLoading(false);
     }
   };
+
+  const startApplePay = useCallback(async () => {
+    setTouchedPay(true);
+    const fields = validateDetails();
+    if (fields.length > 0) {
+      setError(t("checkout.missingFields"));
+      return;
+    }
+    if (!applePayEnabled || !applePayConfigRef.current) {
+      setError(t("checkout.applePayUnavailable"));
+      return;
+    }
+
+    const paypal = (window as any).paypal;
+    const ApplePaySession = (window as any).ApplePaySession;
+    if (!paypal?.Applepay || !ApplePaySession) {
+      setError(t("checkout.applePayUnavailable"));
+      return;
+    }
+
+    const config = applePayConfigRef.current;
+    const currencyCode = config.currencyCode || "EUR";
+    const paymentRequest = {
+      countryCode: config.countryCode,
+      merchantCapabilities: config.merchantCapabilities,
+      supportedNetworks: config.supportedNetworks,
+      currencyCode,
+      total: {
+        label: "Forever Lilies",
+        type: "final",
+        amount: totalAmount
+      },
+      lineItems: [
+        { label: t("cart.subtotal"), amount: Number(subtotal).toFixed(2) },
+        { label: t("checkout.shipping"), amount: shippingInfo.cost.toFixed(2) },
+        { label: t("checkout.tax"), amount: taxAmount.toFixed(2) }
+      ]
+    };
+
+    const session = new ApplePaySession(4, paymentRequest);
+
+    session.onvalidatemerchant = async (event: any) => {
+      try {
+        const validation = await paypal.Applepay().validateMerchant({
+          validationUrl: event.validationURL,
+          displayName: "Forever Lilies"
+        });
+        session.completeMerchantValidation(validation.merchantSession);
+      } catch (err: any) {
+        setError(err?.message || "Apple Pay validation failed");
+        session.abort();
+      }
+    };
+
+    session.onpaymentauthorized = async (event: any) => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const orderId = await createSimpleOrder();
+        await paypal.Applepay().confirmOrder({
+          orderId,
+          token: event.payment.token,
+          billingContact: event.payment.billingContact
+        });
+        session.completePayment(ApplePaySession.STATUS_SUCCESS);
+        await captureSimpleOrder(orderId);
+        setSuccess(true);
+        if (returnUrl) window.location.href = returnUrl;
+      } catch (err: any) {
+        session.completePayment(ApplePaySession.STATUS_FAILURE);
+        setError(err?.message || "Payment failed");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    session.oncancel = () => {
+      setIsLoading(false);
+    };
+
+    session.begin();
+  }, [
+    applePayEnabled,
+    createSimpleOrder,
+    captureSimpleOrder,
+    returnUrl,
+    shippingInfo.cost,
+    subtotal,
+    t,
+    taxAmount,
+    totalAmount,
+    validateDetails
+  ]);
+
+  useEffect(() => {
+    const container = applePayButtonRef.current;
+    if (!container) return;
+
+    container.innerHTML = "";
+    if (!applePayEnabled) return;
+
+    const button = document.createElement("apple-pay-button");
+    button.setAttribute("buttonstyle", "black");
+    button.setAttribute("type", "buy");
+    button.setAttribute("locale", lang === "lt" ? "lt-LT" : "en-US");
+    button.style.width = "100%";
+    button.style.height = "44px";
+
+    const handleClick = () => startApplePay();
+    button.addEventListener("click", handleClick);
+    container.appendChild(button);
+
+    return () => {
+      button.removeEventListener("click", handleClick);
+      if (container.contains(button)) {
+        container.removeChild(button);
+      }
+    };
+  }, [applePayEnabled, lang, startApplePay]);
 
   useEffect(() => {
     if (!touchedPay) return;
@@ -765,12 +922,12 @@ function PayPalCheckoutFormCore({
 
         <button
           type="button"
-          onClick={() => (applePayEnabled ? setSelectedMethod("apple") : null)}
+          onClick={() => (applePaySelectable ? setSelectedMethod("apple") : null)}
           aria-pressed={selectedMethod === "apple"}
-          disabled={!applePayEnabled}
+          disabled={!applePaySelectable}
           className={`box-border h-[56px] w-[120px] rounded-xl border border-black/10 bg-white text-center transition hover:shadow-sm ${
             selectedMethod === "apple" ? "outline outline-2 outline-[#C1121F] outline-offset-[-2px]" : ""
-          } ${applePayEnabled ? "" : "opacity-50"} disabled:cursor-not-allowed`}
+          } ${applePaySelectable ? "" : "opacity-50"} disabled:cursor-not-allowed`}
         >
           <div className="flex h-full items-center justify-center">
             <Image src="/payments/apple-pay.png" alt="Apple Pay" width={56} height={24} />
@@ -887,26 +1044,9 @@ function PayPalCheckoutFormCore({
       {selectedMethod === "apple" && (
         <div className={`space-y-3 ${isPaymentBlocked ? "pointer-events-none opacity-60" : ""}`}>
           {applePayEnabled ? (
-            <PayPalButtons
-              fundingSource="applepay"
-              style={{ layout: "vertical", shape: "pill" }}
-              disabled={isPaymentBlocked}
-              forceReRender={[totalAmount, isPaymentBlocked]}
-              createOrder={async () => createSimpleOrder()}
-              onApprove={async (data) => {
-                try {
-                  setIsLoading(true);
-                  setError(null);
-                  await captureSimpleOrder(data.orderID);
-                  setSuccess(true);
-                  if (returnUrl) window.location.href = returnUrl;
-                } catch (err: any) {
-                  setError(err.message || "Payment failed");
-                } finally {
-                  setIsLoading(false);
-                }
-              }}
-              onError={(err) => setError((err as any)?.message || "Payment failed")}
+            <div
+              ref={applePayButtonRef}
+              className="rounded-xl border border-black/10 bg-white px-4 py-4"
             />
           ) : (
             <div className="rounded-xl border border-dashed border-black/10 bg-white px-4 py-6 text-center text-sm text-ink/60">
