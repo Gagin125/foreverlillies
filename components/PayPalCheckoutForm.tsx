@@ -87,8 +87,8 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
     clientId: paypalClientId as string,
     currency: "EUR",
     intent: "capture",
-    components: "buttons,card-fields,applepay",
-    enableFunding: "applepay"
+    components: "buttons,card-fields,applepay,googlepay",
+    enableFunding: "applepay,googlepay"
   };
 
   if (paypalClientToken) {
@@ -100,6 +100,11 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
       <Script
         src="https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js"
         strategy="afterInteractive"
+      />
+      <Script
+        src="https://pay.google.com/gp/p/js/pay.js"
+        strategy="afterInteractive"
+        onLoad={() => setGooglePaySdkReady(true)}
       />
       <PayPalCheckoutFormWithSdk {...props} />
     </PayPalScriptProvider>
@@ -129,6 +134,8 @@ function PayPalCheckoutFormCore({
   const [cardEligible, setCardEligible] = useState(true);
   const [applePayEligible, setApplePayEligible] = useState(false);
   const [applePaySdkReady, setApplePaySdkReady] = useState(false);
+  const [googlePayEligible, setGooglePayEligible] = useState(false);
+  const [googlePaySdkReady, setGooglePaySdkReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -148,7 +155,8 @@ function PayPalCheckoutFormCore({
   const cardFieldsReady = paypalEnabled && sdkReady && cardEligible;
   const applePaySelectable = paypalAvailable;
   const applePayEnabled = applePaySelectable && applePayEligible;
-  const googlePayEnabled = false;
+  const googlePaySelectable = paypalAvailable;
+  const googlePayEnabled = googlePaySelectable && googlePayEligible;
   const taxAmount = useMemo(
     () => Number(((subtotal + shippingInfo.cost) * 0.03).toFixed(2)),
     [subtotal, shippingInfo.cost]
@@ -163,6 +171,9 @@ function PayPalCheckoutFormCore({
   const cardFieldsRef = useRef<any>(null);
   const applePayConfigRef = useRef<any>(null);
   const applePayButtonRef = useRef<HTMLDivElement | null>(null);
+  const googlePayConfigRef = useRef<any>(null);
+  const googlePayPaymentsClientRef = useRef<any>(null);
+  const googlePayButtonRef = useRef<HTMLDivElement | null>(null);
 
   const availableCities = useMemo(() => {
     if (!checkoutDetails.shipping.country) return [];
@@ -416,6 +427,105 @@ function PayPalCheckoutFormCore({
       });
   }, [applePaySdkReady, paypalAvailable]);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if ((window as any).google?.payments?.api) {
+      setGooglePaySdkReady(true);
+      return;
+    }
+    const interval = setInterval(() => {
+      if ((window as any).google?.payments?.api) {
+        setGooglePaySdkReady(true);
+        clearInterval(interval);
+      }
+    }, 200);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleGooglePayAuthorized = useCallback(
+    async (paymentData: any) => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        const orderId = await createSimpleOrder();
+        const paypal = (window as any).paypal;
+        const confirm = await paypal.Googlepay().confirmOrder({
+          orderId,
+          paymentMethodData: paymentData?.paymentMethodData
+        });
+
+        if (confirm?.status === "PAYER_ACTION_REQUIRED") {
+          await paypal.Googlepay().initiatePayerAction({ orderId });
+        }
+
+        await captureSimpleOrder(orderId);
+        setSuccess(true);
+        if (returnUrl) window.location.href = returnUrl;
+        return { transactionState: "SUCCESS" };
+      } catch (err: any) {
+        setError(err?.message || "Payment failed");
+        return {
+          transactionState: "ERROR",
+          error: {
+            intent: "PAYMENT_AUTHORIZATION",
+            message: err?.message || "Payment failed"
+          }
+        };
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [captureSimpleOrder, createSimpleOrder, returnUrl]
+  );
+
+  useEffect(() => {
+    if (!googlePaySelectable || !googlePaySdkReady || !window.paypal) {
+      googlePayConfigRef.current = null;
+      googlePayPaymentsClientRef.current = null;
+      setGooglePayEligible(false);
+      return;
+    }
+
+    const paypal = (window as any).paypal;
+    const googleApi = (window as any).google?.payments?.api;
+    if (!paypal?.Googlepay || !googleApi) {
+      googlePayConfigRef.current = null;
+      googlePayPaymentsClientRef.current = null;
+      setGooglePayEligible(false);
+      return;
+    }
+
+    const paymentsClient =
+      googlePayPaymentsClientRef.current ??
+      new googleApi.PaymentsClient({
+        environment: process.env.NODE_ENV === "production" ? "PRODUCTION" : "TEST",
+        paymentDataCallbacks: {
+          onPaymentAuthorized: handleGooglePayAuthorized
+        }
+      });
+
+    googlePayPaymentsClientRef.current = paymentsClient;
+
+    paypal
+      .Googlepay()
+      .config()
+      .then((config: any) => {
+        googlePayConfigRef.current = config;
+        return paymentsClient.isReadyToPay({
+          apiVersion: 2,
+          apiVersionMinor: 0,
+          allowedPaymentMethods: config.allowedPaymentMethods
+        });
+      })
+      .then((response: any) => {
+        setGooglePayEligible(Boolean(response?.result));
+      })
+      .catch(() => {
+        googlePayConfigRef.current = null;
+        setGooglePayEligible(false);
+      });
+  }, [googlePaySelectable, googlePaySdkReady, handleGooglePayAuthorized]);
+
   const handleCardSubmit = async (event: FormEvent) => {
     event.preventDefault();
     setTouchedPay(true);
@@ -556,6 +666,61 @@ function PayPalCheckoutFormCore({
       }
     };
   }, [applePayEnabled, lang, startApplePay]);
+
+  const startGooglePay = useCallback(async () => {
+    setTouchedPay(true);
+    const fields = validateDetails();
+    if (fields.length > 0) {
+      setError(t("checkout.missingFields"));
+      return;
+    }
+    if (!googlePayEnabled || !googlePayPaymentsClientRef.current || !googlePayConfigRef.current) {
+      setError(t("checkout.googlePayUnavailable"));
+      return;
+    }
+
+    const config = googlePayConfigRef.current;
+    try {
+      await googlePayPaymentsClientRef.current.loadPaymentData({
+        apiVersion: 2,
+        apiVersionMinor: 0,
+        allowedPaymentMethods: config.allowedPaymentMethods,
+        merchantInfo: config.merchantInfo,
+        transactionInfo: {
+          totalPriceStatus: "FINAL",
+          totalPrice: totalAmount,
+          currencyCode: config.currencyCode || "EUR"
+        },
+        callbackIntents: ["PAYMENT_AUTHORIZATION"]
+      });
+    } catch (err: any) {
+      if (err?.statusCode === "CANCELED") return;
+      setError(err?.message || "Payment failed");
+      setIsLoading(false);
+    }
+  }, [googlePayEnabled, totalAmount, t, validateDetails]);
+
+  useEffect(() => {
+    const container = googlePayButtonRef.current;
+    if (!container) return;
+
+    container.innerHTML = "";
+    if (!googlePayEnabled || !googlePayPaymentsClientRef.current) return;
+
+    const button = googlePayPaymentsClientRef.current.createButton({
+      buttonColor: "black",
+      buttonType: "buy",
+      onClick: startGooglePay
+    });
+
+    container.appendChild(button);
+
+    return () => {
+      if (container.contains(button)) {
+        container.removeChild(button);
+      }
+    };
+  }, [googlePayEnabled, startGooglePay]);
 
   useEffect(() => {
     if (!touchedPay) return;
@@ -907,12 +1072,12 @@ function PayPalCheckoutFormCore({
 
         <button
           type="button"
-          onClick={() => (googlePayEnabled ? setSelectedMethod("google") : null)}
+          onClick={() => (googlePaySelectable ? setSelectedMethod("google") : null)}
           aria-pressed={selectedMethod === "google"}
-          disabled={!googlePayEnabled}
+          disabled={!googlePaySelectable}
           className={`box-border h-[56px] w-[120px] rounded-xl border border-black/10 bg-white text-center transition hover:shadow-sm ${
             selectedMethod === "google" ? "outline outline-2 outline-[#C1121F] outline-offset-[-2px]" : ""
-          } ${googlePayEnabled ? "" : "opacity-50"} disabled:cursor-not-allowed`}
+          } ${googlePaySelectable ? "" : "opacity-50"} disabled:cursor-not-allowed`}
         >
           <div className="flex h-full items-center justify-center">
             <Image src="/payments/google-pay.png" alt="Google Pay" width={62} height={24} />
@@ -1058,9 +1223,16 @@ function PayPalCheckoutFormCore({
 
       {selectedMethod === "google" && (
         <div className={`space-y-3 ${isPaymentBlocked ? "pointer-events-none opacity-60" : ""}`}>
-          <div className="rounded-xl border border-dashed border-black/10 bg-white px-4 py-6 text-center text-sm text-ink/60">
-            {t("checkout.comingSoon")}
-          </div>
+          {googlePayEnabled ? (
+            <div
+              ref={googlePayButtonRef}
+              className="rounded-xl border border-black/10 bg-white px-4 py-4"
+            />
+          ) : (
+            <div className="rounded-xl border border-dashed border-black/10 bg-white px-4 py-6 text-center text-sm text-ink/60">
+              {t("checkout.googlePayUnavailable")}
+            </div>
+          )}
         </div>
       )}
 
