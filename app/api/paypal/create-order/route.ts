@@ -38,7 +38,14 @@ export async function POST(request: Request) {
 
     const data = await response.json();
     if (!response.ok) {
-      return NextResponse.json({ error: data?.message || "PAYPAL_CREATE_FAILED" }, { status: 500 });
+      const payload = {
+        error: data?.message || "PAYPAL_CREATE_FAILED",
+        name: data?.name,
+        details: data?.details,
+        debugId: data?.debug_id
+      };
+      console.error("PayPal create-order failed", payload);
+      return NextResponse.json(payload, { status: 500 });
     }
 
     return NextResponse.json({ id: data.id });

@@ -5,6 +5,12 @@ const getEnv = (): PayPalEnv => (process.env.PAYPAL_ENV === "live" ? "live" : "s
 export const getPaypalBaseUrl = () =>
   getEnv() === "live" ? "https://api-m.paypal.com" : "https://api-m.sandbox.paypal.com";
 
+const buildPayPalError = (message: string, data: any) => {
+  const error = new Error(message) as Error & { paypal?: any };
+  error.paypal = data;
+  return error;
+};
+
 const getAuthHeader = () => {
   const clientId = process.env.PAYPAL_CLIENT_ID;
   const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
@@ -38,7 +44,7 @@ export const getAccessToken = async () => {
 
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(data?.error_description || "PayPal auth failed");
+    throw buildPayPalError(data?.error_description || "PayPal auth failed", data);
   }
 
   const expiresIn = typeof data?.expires_in === "number" ? data.expires_in : 300;
@@ -63,7 +69,7 @@ export const generatePayPalClientToken = async () => {
   });
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(data?.message || "PayPal client token failed");
+    throw buildPayPalError(data?.message || "PayPal client token failed", data);
   }
   return data.client_token as string;
 };
@@ -125,7 +131,7 @@ export const createPayPalOrder = async ({
 
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(data?.message || "PayPal order creation failed");
+    throw buildPayPalError(data?.message || "PayPal order creation failed", data);
   }
   return data;
 };
@@ -141,7 +147,7 @@ export const capturePayPalOrder = async (orderId: string) => {
   });
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(data?.message || "PayPal capture failed");
+    throw buildPayPalError(data?.message || "PayPal capture failed", data);
   }
   return data;
 };

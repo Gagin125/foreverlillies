@@ -63,6 +63,25 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ status: capture.status, captureId, payer });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message || "PayPal capture failed" }, { status: 500 });
+    const message = error?.message || "PayPal capture failed";
+    const paypal = error?.paypal;
+    if (paypal) {
+      console.error("PayPal order/capture failed", {
+        error: message,
+        name: paypal?.name,
+        details: paypal?.details,
+        debugId: paypal?.debug_id
+      });
+      return NextResponse.json(
+        {
+          error: message,
+          name: paypal?.name,
+          details: paypal?.details,
+          debugId: paypal?.debug_id
+        },
+        { status: 500 }
+      );
+    }
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

@@ -85,8 +85,26 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ orderId: order.id, total: totalValue });
   } catch (error: any) {
-    const message = error.message || "PayPal order failed";
+    const message = error?.message || "PayPal order failed";
+    const paypal = error?.paypal;
     const status = message === "Invalid cart" ? 400 : 500;
+    if (paypal) {
+      console.error("PayPal order/create failed", {
+        error: message,
+        name: paypal?.name,
+        details: paypal?.details,
+        debugId: paypal?.debug_id
+      });
+      return NextResponse.json(
+        {
+          error: message,
+          name: paypal?.name,
+          details: paypal?.details,
+          debugId: paypal?.debug_id
+        },
+        { status }
+      );
+    }
     return NextResponse.json({ error: message }, { status });
   }
 }

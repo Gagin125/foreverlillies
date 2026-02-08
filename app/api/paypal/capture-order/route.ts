@@ -25,7 +25,14 @@ export async function POST(request: Request) {
 
     const data = await response.json();
     if (!response.ok) {
-      return NextResponse.json({ error: data?.message || "PAYPAL_CAPTURE_FAILED" }, { status: 500 });
+      const payload = {
+        error: data?.message || "PAYPAL_CAPTURE_FAILED",
+        name: data?.name,
+        details: data?.details,
+        debugId: data?.debug_id
+      };
+      console.error("PayPal capture-order failed", payload);
+      return NextResponse.json(payload, { status: 500 });
     }
 
     const items = Array.isArray(body.items) ? (body.items as CartItemInput[]) : [];

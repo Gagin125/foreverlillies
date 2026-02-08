@@ -62,6 +62,18 @@ type ScriptState = {
   isRejected: boolean;
 };
 
+const formatPayPalError = (data: any, fallback: string) => {
+  const base = data?.error || data?.message || fallback;
+  const debugId = data?.debugId || data?.debug_id;
+  const issues = Array.isArray(data?.details)
+    ? data.details.map((detail: any) => detail?.issue).filter(Boolean)
+    : [];
+  const issueText = issues.length > 0 ? `/${issues.join(",")}` : "";
+  if (debugId) return `${base} (debug: ${debugId}${issueText})`;
+  if (issueText) return `${base} (${issues.join(",")})`;
+  return base;
+};
+
 export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
   const { paypalClientId, paypalClientToken, paypalEnabled } = props;
   const [sdkMode, setSdkMode] = useState<"full" | "basic">("full");
@@ -306,7 +318,7 @@ function PayPalCheckoutFormCore({
         setTouchedPay(true);
         setError(t("checkout.lockerRequired"));
       }
-      throw new Error(data.error || "Unable to create order");
+      throw new Error(formatPayPalError(data, "Unable to create order"));
     }
     return data.orderId as string;
   }, [checkoutDetails, validateDetails]);
@@ -323,7 +335,7 @@ function PayPalCheckoutFormCore({
     });
     const data = await response.json();
     if (!response.ok) {
-      throw new Error(data.error || "Unable to capture payment");
+      throw new Error(formatPayPalError(data, "Unable to capture payment"));
     }
     return data;
   }, []);
@@ -342,7 +354,7 @@ function PayPalCheckoutFormCore({
     });
     const data = await response.json();
     if (!response.ok || !data?.id) {
-      throw new Error(data?.error || "Unable to create PayPal order");
+      throw new Error(formatPayPalError(data, "Unable to create PayPal order"));
     }
     return data.id as string;
   }, [totalAmount, t, validateDetails]);
@@ -359,7 +371,7 @@ function PayPalCheckoutFormCore({
     });
     const data = await response.json();
     if (!response.ok) {
-      throw new Error(data?.error || "Unable to capture PayPal order");
+      throw new Error(formatPayPalError(data, "Unable to capture PayPal order"));
     }
     return data;
   }, []);
