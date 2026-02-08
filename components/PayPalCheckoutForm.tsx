@@ -64,6 +64,7 @@ type ScriptState = {
 
 export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
   const { paypalClientId, paypalClientToken, paypalEnabled } = props;
+  const [sdkMode, setSdkMode] = useState<"full" | "basic">("full");
   const paypalReady =
     paypalEnabled && typeof paypalClientId === "string" && paypalClientId.length > 0;
 
@@ -87,8 +88,9 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
     clientId: paypalClientId as string,
     currency: "EUR",
     intent: "capture",
-    components: "buttons,card-fields,applepay,googlepay",
-    enableFunding: "applepay,googlepay"
+    components:
+      sdkMode === "full" ? "buttons,card-fields,applepay,googlepay" : "buttons,card-fields",
+    enableFunding: sdkMode === "full" ? "applepay,googlepay" : undefined
   };
 
   if (paypalClientToken) {
@@ -96,7 +98,7 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
   }
 
   return (
-    <PayPalScriptProvider options={options}>
+    <PayPalScriptProvider key={sdkMode} options={options}>
       <Script
         src="https://applepay.cdn-apple.com/jsapi/1.latest/apple-pay-sdk.js"
         strategy="afterInteractive"
@@ -105,14 +107,31 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
         src="https://pay.google.com/gp/p/js/pay.js"
         strategy="afterInteractive"
       />
-      <PayPalCheckoutFormWithSdk {...props} />
+      <PayPalCheckoutFormWithSdk
+        {...props}
+        sdkMode={sdkMode}
+        onScriptFailed={() => setSdkMode("basic")}
+      />
     </PayPalScriptProvider>
   );
 }
 
-function PayPalCheckoutFormWithSdk(props: PayPalCheckoutFormProps) {
+function PayPalCheckoutFormWithSdk(
+  props: PayPalCheckoutFormProps & {
+    sdkMode: "full" | "basic";
+    onScriptFailed: () => void;
+  }
+) {
   const [scriptState] = usePayPalScriptReducer();
-  return <PayPalCheckoutFormCore {...props} paypalReady scriptState={scriptState} />;
+  return (
+    <PayPalCheckoutFormCore
+      {...props}
+      paypalReady
+      scriptState={scriptState}
+      sdkMode={props.sdkMode}
+      onScriptFailed={props.onScriptFailed}
+    />
+  );
 }
 
 function PayPalCheckoutFormCore({
@@ -124,7 +143,12 @@ function PayPalCheckoutFormCore({
   onChangeCheckoutDetails,
   paypalReady,
   scriptState
-}: PayPalCheckoutFormProps & { paypalReady: boolean; scriptState: ScriptState }) {
+}: PayPalCheckoutFormProps & {
+  paypalReady: boolean;
+  scriptState: ScriptState;
+  sdkMode: "full" | "basic";
+  onScriptFailed?: () => void;
+}) {
   const { t, lang } = useLanguage();
   const [selectedMethod, setSelectedMethod] = useState<MethodKey>("card");
   const { isResolved, isPending, isRejected } = scriptState;
@@ -151,11 +175,13 @@ function PayPalCheckoutFormCore({
   const paypalConfigured = paypalReady && paypalEnabledProp;
   const paypalEnabled = paypalConfigured;
   const paypalAvailable = paypalEnabled && sdkReady && !sdkFailed;
+  const walletComponentsEnabled = sdkMode === "full";
   const cardFieldsReady = paypalEnabled && sdkReady && cardEligible;
-  const applePaySelectable = paypalAvailable;
+  const applePaySelectable = walletComponentsEnabled && paypalAvailable;
   const applePayEnabled = applePaySelectable && applePayEligible;
-  const googlePaySelectable = paypalAvailable;
+  const googlePaySelectable = walletComponentsEnabled && paypalAvailable;
   const googlePayEnabled = googlePaySelectable && googlePayEligible;
+  const fallbackTriggeredRef = useRef(false);
   const taxAmount = useMemo(
     () => Number(((subtotal + shippingInfo.cost) * 0.03).toFixed(2)),
     [subtotal, shippingInfo.cost]
@@ -334,6 +360,13 @@ function PayPalCheckoutFormCore({
     }
     return data;
   }, []);
+
+  useEffect(() => {
+    if (sdkFailed && sdkMode === "full" && onScriptFailed && !fallbackTriggeredRef.current) {
+      fallbackTriggeredRef.current = true;
+      onScriptFailed();
+    }
+  }, [sdkFailed, sdkMode, onScriptFailed]);
 
   useEffect(() => {
     if (!sdkReady || !window.paypal) return;
