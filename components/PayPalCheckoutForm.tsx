@@ -86,7 +86,8 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
     clientId: paypalClientId as string,
     currency: "EUR",
     intent: "capture",
-    components: "buttons,card-fields"
+    components: "buttons,card-fields",
+    enableFunding: "applepay"
   };
 
   if (paypalClientToken) {
@@ -121,6 +122,7 @@ function PayPalCheckoutFormCore({
   const sdkReady = isResolved;
   const sdkFailed = isRejected;
   const [cardEligible, setCardEligible] = useState(true);
+  const [applePayEligible, setApplePayEligible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -138,7 +140,7 @@ function PayPalCheckoutFormCore({
   const paypalEnabled = paypalConfigured;
   const paypalAvailable = paypalEnabled && sdkReady && !sdkFailed;
   const cardFieldsReady = paypalEnabled && sdkReady && cardEligible;
-  const applePayEnabled = false;
+  const applePayEnabled = paypalAvailable && applePayEligible;
   const googlePayEnabled = false;
   const taxAmount = useMemo(
     () => Number(((subtotal + shippingInfo.cost) * 0.03).toFixed(2)),
@@ -356,6 +358,25 @@ function PayPalCheckoutFormCore({
       setCardEligible(false);
     }
   }, [sdkReady, createOrder, captureOrder, returnUrl]);
+
+  useEffect(() => {
+    if (!paypalAvailable || !window.paypal) {
+      setApplePayEligible(false);
+      return;
+    }
+
+    const paypal = (window as any).paypal;
+    try {
+      if (!paypal?.Buttons || !paypal?.FUNDING?.APPLEPAY) {
+        setApplePayEligible(false);
+        return;
+      }
+      const eligible = paypal.Buttons({ fundingSource: paypal.FUNDING.APPLEPAY }).isEligible();
+      setApplePayEligible(Boolean(eligible));
+    } catch {
+      setApplePayEligible(false);
+    }
+  }, [paypalAvailable]);
 
   const handleCardSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -865,9 +886,33 @@ function PayPalCheckoutFormCore({
 
       {selectedMethod === "apple" && (
         <div className={`space-y-3 ${isPaymentBlocked ? "pointer-events-none opacity-60" : ""}`}>
-          <div className="rounded-xl border border-dashed border-black/10 bg-white px-4 py-6 text-center text-sm text-ink/60">
-            {t("checkout.comingSoon")}
-          </div>
+          {applePayEnabled ? (
+            <PayPalButtons
+              fundingSource="applepay"
+              style={{ layout: "vertical", shape: "pill" }}
+              disabled={isPaymentBlocked}
+              forceReRender={[totalAmount, isPaymentBlocked]}
+              createOrder={async () => createSimpleOrder()}
+              onApprove={async (data) => {
+                try {
+                  setIsLoading(true);
+                  setError(null);
+                  await captureSimpleOrder(data.orderID);
+                  setSuccess(true);
+                  if (returnUrl) window.location.href = returnUrl;
+                } catch (err: any) {
+                  setError(err.message || "Payment failed");
+                } finally {
+                  setIsLoading(false);
+                }
+              }}
+              onError={(err) => setError((err as any)?.message || "Payment failed")}
+            />
+          ) : (
+            <div className="rounded-xl border border-dashed border-black/10 bg-white px-4 py-6 text-center text-sm text-ink/60">
+              {t("checkout.applePayUnavailable")}
+            </div>
+          )}
         </div>
       )}
 
