@@ -143,7 +143,9 @@ function PayPalCheckoutFormCore({
   checkoutDetails,
   onChangeCheckoutDetails,
   paypalReady,
-  scriptState
+  scriptState,
+  sdkMode,
+  onScriptFailed
 }: PayPalCheckoutFormProps & {
   paypalReady: boolean;
   scriptState: ScriptState;
