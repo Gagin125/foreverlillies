@@ -80,6 +80,7 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
         {...props}
         paypalReady={false}
         scriptState={{ isResolved: false, isPending: false, isRejected: true }}
+        sdkMode="basic"
       />
     );
   }
