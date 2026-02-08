@@ -104,7 +104,6 @@ export default function PayPalCheckoutForm(props: PayPalCheckoutFormProps) {
       <Script
         src="https://pay.google.com/gp/p/js/pay.js"
         strategy="afterInteractive"
-        onLoad={() => setGooglePaySdkReady(true)}
       />
       <PayPalCheckoutFormWithSdk {...props} />
     </PayPalScriptProvider>
